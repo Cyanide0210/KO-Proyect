@@ -9,3 +9,535 @@
 //===== Additional Comments: ================================= 
 //= 1.0 Extracted from iRO(Official?) [M45T3R]/[Dastgir Pojee]
 //============================================================
+// Block 1
+job_ko,57,16	script	Sight#ko_00	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+mes "There are tiny letters on the sign.";
+next;
+if (LREADYHR == 1){
+if (checkquest(5141)== 1) erasequest 5141;
+set LPOINTS, 100;
+mes "You've returned to the first block. Your LP is recovered.";
+next;
+}
+switch(select("Read the description.:Start the test.")){
+case 1:
+mes "The Test of Survival starts from here and you use  100 Life Points (LP) and roll dice to advance forward through the test.";
+next;
+mes "The whole test starts from block 0 to block 40 and each block you get can either give or take your LP.";
+next;
+mes "You need to have some LP till you get to the arrival block at the end to pass the test.";
+next;
+mes "But! You still pass the test if your LP becomes 0 when you get to the arrival block.";
+next;
+mes "Game instructions end here. Good luck to you.";
+close;
+
+case 2:
+if (checkquest(5140) == -1)setquest 5140;
+set LPOINTS, 100;
+mes "You've gained 100 Life Points (LP).";
+next;
+mes "Location: 0";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+set LREADYHR,1;
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",,;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",22,16;
+case 6:
+warp "job_ko",17,19;
+}
+}
+}
+}
+
+// Block 2 
+job_ko,49,16,0	script	Sight#ko_01	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+mes "There are tiny letters on the sign.";
+next;
+mes "You are really bad at rolling dice. How can you get a 1 from the start? You can move to block 9 if you pay up 10 LP in this block.";
+next;
+switch(select("Use 10 LP:Roll the dice."))
+case 1:
+set LPOINTS, LPOINTS-10;
+mes "< Used 10 LP >";
+mes "Press Close to move to block 9.";
+close2;
+warp "job_ko",17,43;
+case 2:
+mes "Roll the dice.";
+next;
+mes "Location: 1";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+close2;
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",,;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",17,27;
+}
+
+// Block 3 
+job_ko,33,16	script	Sight#ko_03	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+mes "There are tiny letters on the sign.";
+next;
+mes "Used 5 LP so you will have to resist the curse passed down through generations before moving forward.";
+next;
+switch(select("Use 5 LP")){
+case 1:
+mes "< Used 5 LP >";
+set LPOINTS, LPOINTS-5;
+mes "You can roll the dice now.";
+next;
+mes "Location: 0";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+close2;
+switch(.@dice){
+case 1:
+warp "job_ko",30,16;
+case 2:
+warp "job_ko",,;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",22,16;
+case 6:
+warp "job_ko",17,19;
+}
+}
+}
+}
+// Block 4 
+job_ko,25,16,0	script	Sight#ko_04	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+mes "There are tiny letters scribbled on the sign.";
+next;
+mes ""+$whowashere$+" was here.";
+next;
+mes "Should I leave my name since taking the test is a special occasion?";
+next;
+switch(select("Use 5 LP and leave your name.:Continue to roll the dice.")){
+case 1:
+mes "< Used 5 LP >";
+next;
+set $whowashere$,"strcharinfo(0)";
+mes ""+strcharinfo(0)+" was here.";
+mes "You left your name. You can roll the dice now.";
+next;
+mes "Location: 0";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+close2;
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",17,19;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",17,35;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",,;
+}
+}
+case 2:
+mes "Location: 0";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+close2;
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",17,19;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",,;
+}
+}
+}
+}
+
+// Block 5 
+job_ko,17,16	script	Sight#ko_05	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnUCurse:
+erasequest 5141;
+end;
+
+OnTouch:
+if (checkquest(5141) == 1){
+mes "You are cursed and cannot move to any other block for 2 minutes.";
+close;
+}
+mes "There are tiny letters on the sign.";
+next;
+mes "If you do not pay 5 LP, you will be cursed and immobilized for 2 minutes.";
+next;
+switch(select("Use 5 LP:Do not pay.")){
+case 1:
+warp "",,;
+case 2:
+setquest 5141;
+addtimer 120000,strnpcinfo(3)+"::OnUCurse";
+mes "You are cursed and cannot move to any other block for 2 minutes.";
+close;
+}
+}
+
+// Block 6 
+job_ko,17,24	script	Sight#ko_06	909,2,2,{
+mes "There are tiny letters on the sign.";
+next;
+mes "This block is blessed.";
+if (LPOINTS > 1 && LPOINTS < 93)
+set LPOINTS, LPOINTS+7;
+else if (LPOINTS == 93)
+set LPOINTS, LPOINTS+7;
+else if (LPOINTS == 94)
+set LPOINTS, LPOINTS+6;
+else if (LPOINTS == 95)
+set LPOINTS, LPOINTS+5;
+else if (LPOINTS == 96)
+set LPOINTS, LPOINTS+4;
+else if (LPOINTS == 97)
+set LPOINTS, LPOINTS+3;
+else if (LPOINTS == 98)
+set LPOINTS, LPOINTS+2;
+else if (LPOINTS == 99)
+set LPOINTS, LPOINTS+1;
+mes "Life Point recovers 7 LP.";
+mes "Cannot exceed maximum 100 LP.";
+next;
+mes "< Recover LP >";
+next;
+mes "Location: 6";
+mes "Total LP: 100";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+case 1:
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",17,35;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",,;
+}
+}
+}
+
+// Block 7 
+job_ko,17,32,0	script	Sight#ko_07	909,2,2,{
+mes "There are tiny letters on the sign.";
+next;
+mes "This block has a trap.";
+mes "Press Close to go back to block 5.";
+close2;
+warp "job_ko",22,16;
+}
+
+// Block 8 
+job_ko,17,40	script	Sight#ko_08	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+OnTouch:
+	mes "There are tiny letters on the sign.";
+	next;
+M_game:
+	mes "Rock-paper-scissors Machine";
+	mes "If you win, move to block 15.";
+	mes "If it is a draw, roll the dice.";
+	mes "If you lose, move to block 0.";
+	next;
+	mes "Rock! Paper! Scissors!";
+	set .@master, rand(1,3);
+	next;
+	switch(select("Give scissors.:Give rock.:Give paper.")) {
+		case 1:	set .@player, 1;	break;
+		case 2:	set .@player, 2;	break;
+		case 3:	set .@player, 3;	break;
+	}
+
+	emotion (9+.@player),1;
+	emotion (9+.@master);
+	mes "=Game Results=";
+	mes "Machine: "+((.@master == 1)?"Scissors":"")+((.@master == 2)?"Rock":"")+((.@master == 3)?"Paper":"")+".";
+	mes "You: "+((.@player == 1)?"Scissors":"")+((.@player == 2)?"Rock":"")+((.@player == 3)?"Paper":"")+".";
+	if (.@master==.@player) {
+		mes "Draw";
+		goto M_game;
+	} else if ( (.@player==1 && .@master==2) || (.@player==2 && .@master==3) || (.@player==3 && .@master==1) ) {
+		mes "You Lose";
+		mes "Press Close to move to block 0.";
+		close2;
+		warp "job_ko",62,16;
+	}
+		mes "You Win";
+		mes "Press Close to move to block 15.";
+		close2;
+		warp "job_ko",,;
+}
+
+// Block 9 
+job_ko,17,48,0	script	Sight#ko_09	909,2,2,{
+mes "There are tiny letters on the sign.";
+next;
+mes "Please proceed.";
+next;
+mes "Location: 9";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 1 LP.";
+next;
+switch(select("Roll the dice.")){
+set LPOINTS, LPOINTS-1;
+set .@dice, rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice+"*";
+mes "The dice came out as "+.@dice+".";
+mes "Press Close to move forward "+.@dice+" blocks.";
+close2;
+switch(.@dice){
+case 1:
+warp "job_ko",,;
+case 2:
+warp "job_ko",17,19;
+case 3:
+warp "job_ko",25,60;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",49,60;
+}
+}
+}
+
+// Block 10
+job_ko,17,56,0	script	Sight#ko_10	909,2,2,{
+mes "There are tiny letters on the sign.";
+next;
+mes "If you don't want to be caught, install a trap.";
+next;
+mes "You are caught in the trap installed.";
+mes "Press Close to go back to block 0.";
+close2;
+warp "job_ko",63,16;
+}
+// Block 11
+// Block 12
+job_ko,30,60,0	script	Sight#ko_12	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+	mes "There are tiny letters on the sign.";
+	next;
+M_game:
+	mes "Rock-paper-scissors Machine";
+	mes "If you win, move to block 20.";
+	mes "If it is a draw, roll the dice.";
+	mes "If you lose, move to block 9.";
+	next;
+	mes "Rock! Paper! Scissors!";
+	set .@master, rand(1,3);
+	next;
+	switch(select("Give scissors.:Give rock.:Give paper.")) {
+		case 1:	set .@player, 1;	break;
+		case 2:	set .@player, 2;	break;
+		case 3:	set .@player, 3;	break;
+	}
+
+	emotion (9+.@player),1;
+	emotion (9+.@master);
+	mes "=Game Results=";
+	mes "Machine: "+((.@master == 1)?"Scissors":"")+((.@master == 2)?"Rock":"")+((.@master == 3)?"Paper":"")+".";
+	mes "You: "+((.@player == 1)?"Scissors":"")+((.@player == 2)?"Rock":"")+((.@player == 3)?"Paper":"")+".";
+	if (.@master==.@player) {
+		mes "Draw";
+		goto M_game;
+	} else if ( (.@player==1 && .@master==2) || (.@player==2 && .@master==3) || (.@player==3 && .@master==1) ) {
+		mes "You Lose";
+		mes "Press Close to move to block 9.";
+		close2;
+		warp "job_ko",17,43;
+	}
+		mes "You Win";
+		mes "Press Close to move to block 20.";
+		close2;
+		warp "job_ko",,;
+}
+
+// Block 13
+// Block 14
+// Block 15
+// Block 16
+// Block 17
+// Block 18
+// Block 19
+// Block 20
+// Block 21
+// Block 22
+// Block 23
+// Block 24
+job_ko,33,23,0	script	Sight#ko_24	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
+
+OnTouch:
+mes "There are tiny letters on the sign.";
+next;
+mes "consume 2 LP and roll the dice twice.";
+next;
+mes "If the sum of the numbers from both dice is larger than 8, then you can move to any block between 25 to 30. But! If the sum is below 8, you must move back to block 19.";
+next;
+mes "Location: 24";
+mes "Total LP: "+LPOINTS+"";
+mes "To roll the dice, you need to consume 2 LP.";
+next;
+switch(select("Roll the first dice.")){
+< Used 2 LP >
+set .@dice1,rand(1,6);
+next;
+mes ""+strcharinfo(0)+" *Dice#"+.@dice1+"*";
+mes "First dice result is "+.@dice1+". Do you want to roll the second dice?";
+next;
+switch(select("Roll the second dice.")){
+set .@dice2,rand(1,6);
+mes ""+strcharinfo(0)+" *Dice#"+.@dice2+"*";
+mes "Second dice result is "+.@dice2+".";
+next;
+set .@dresult,.@dice1+.@dice2;
+"+.@dice1+" + "+.@dice2+" = "+.@dresult+"
+if (.@dresult<8){ 
+mes "You total is lower than 8. Press Close to move to block 19."; 
+close2;
+warp "job_ko",,;} else
+mes "You total is larger than 8. Please choose a block to move to between blocks 25 through 30.";
+next;
+switch(select("Move to block 25.:Move to block 26.:Move to block 27.:Move to block 28.:Move to block 29.:Move to block 30.")){
+case 1:
+warp "job_ko",30,23;
+case 2:
+warp "job_ko",,;
+case 3:
+warp "job_ko",,;
+case 4:
+warp "job_ko",,;
+case 5:
+warp "job_ko",,;
+case 6:
+warp "job_ko",,;
+}
+}
+}
+}
+
+// Block 25
+// Block 26
+// Block 27
+// Block 28
+// Block 29
+// Block 30
+// Block 31
+// Block 32
+// Block 33
+// Block 34
+// Block 35
+// Block 36
+// Block 37
+// Block 38
+// Block 39
+// Block 40
