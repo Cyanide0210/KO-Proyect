@@ -1,0 +1,11 @@
+//===== rAthena Script ======================================
+//= Kagerou/Oboro Job Change Quest
+//===== By: ================================================== 
+//= M45T3R, Dastgit Pojee
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Description: ========================================= 
+//= Town-specific Alberta NPCs
+//===== Additional Comments: ================================= 
+//= 1.0 Extracted from iRO(Official?) [M45T3R]/[Dastgir Pojee]
+//============================================================
