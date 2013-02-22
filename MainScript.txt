@@ -1,18 +1,20 @@
 //===== rAthena Script ======================================
 //= Kagerou/Oboro Job Change Quest
 //===== By: ================================================== 
-//= M45T3R, Dastgit Pojee
+//= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.0
+//= 1.1
 //===== Description: ========================================= 
-//= Town-specific Alberta NPCs
+//= Kagerou/Oboro Job NPC.
 //===== Additional Comments: ================================= 
 //= 1.0 Extracted from iRO(Official?) [M45T3R]/[Dastgir Pojee]
+//= 1.1 Added Ninja Check,Rearranged the Scripts. [Dastgir Pojee]
 //============================================================
-que_ng,28,156 script Start#ko -1,4,4,{ // If ninja J/BLVL > ?? -? Not tested
+que_ng,28,156 script Start#ko -1,4,4,{
 OnTouch:
+if (Class!=25 && BaseLevel < 99 && JobLevel < 70) end;
 if (checkquest(5131) == -1){
-  mes "Secret Passage to Ninja Guild";
+	mes "Secret Passage to Ninja Guild";
 	mes "You hear familiar voices talking to each other.";
 	next;
 	mes "[Unknown Voice A]";
