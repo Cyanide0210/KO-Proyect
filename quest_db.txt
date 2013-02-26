@@ -1,0 +1,20 @@
+// Quest Database
+//
+// Structure of Database:
+// Quest ID,Time Limit,Target1,Val1,Target2,Val2,Target3,Val3,Quest Title
+5131,0,0,0,0,0,0,0,"Strange Conversation"
+5132,0,0,0,0,0,0,0,"Family Business-(1)"
+5133,0,0,0,0,0,0,0,"Family Business-(2)"
+5134,0,0,0,0,0,0,0,"New path"
+5135,0,0,0,0,0,0,0,"4 tests"
+5136,0,0,0,0,0,0,0,"Knowledge test"
+5137,0,0,0,0,0,0,0,"Survival test"
+5138,0,0,0,0,0,0,0,"Weapons test"
+5139,0,0,0,0,0,0,0,"The guy looks familiar!!"
+5140,0,0,0,0,0,0,0,"Uncertain chilliness"
+5141,120,0,0,0,0,0,0,"Got a curse!!"
+5142,0,0,0,0,0,0,0,"Prototype-(1)"
+5143,0,0,0,0,0,0,0,"Prototype-(2)"
+5144,0,0,0,0,0,0,0,"Prototype-(2)"
+5145,0,0,0,0,0,0,0,"Prototype-(3)"
+5146,0,0,0,0,0,0,0,"Battle test"
