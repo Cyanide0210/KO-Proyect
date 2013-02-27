@@ -264,6 +264,7 @@ if (select("Long time indeed,Joe.")==1){
 		setquest 5142;	//Prototype-(1)
 		mes "[Red Leopard Joe]";
 		mes "and everywhere else. Now let's begin!!";
+		close;
 	}
 }
 } else{
