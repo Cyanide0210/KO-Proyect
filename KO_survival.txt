@@ -1,17 +1,18 @@
 //===== rAthena Script ======================================
 //= Kagerou/Oboro Job Change Quest
-//===== By: ================================================== 
+//===== By: ====================================
 //= M45T3R, Dastgir Pojee
-//===== Current Version: ===================================== 
-//= 1.2
-//===== Description: ========================================= 
+//===== Current Version: =====================================
+//= 1.3
+//===== Description: =========================================
 //= Test of Survival KO
-//===== Additional Comments: ================================= 
+//===== Additional Comments: ========================================
 //= 1.0 Extracted from iRO(Official?) [M45T3R]/[Dastgir Pojee]
 //= 1.1	Added All the Blocks.	[Dastgir Pojee]
 //=	Updated Functions		[Dastgir Pojee]
 //= 1.2 Fixed Many Errors.		[Dastgir Pojee]
-//============================================================
+//= 1.3 Fixed More Bugs.		[Dastgir Pojee]
+//=======================================
 ////Functions
 function	script	KO_SD	{	//Kagerou/Oboro Survival-DiceTwice(LargerThan,Warpto,Smallthan,Warpto,Location,LPConsume,BlockBetween1,BlockBetween2)
 
@@ -22,24 +23,24 @@ function	script	KO_SD	{	//Kagerou/Oboro Survival-DiceTwice(LargerThan,Warpto,Sma
 	if (select("Roll the first dice.")==1){
 		mes "< Used "+getarg(5)+" LP >";
 		set LPOINTS,LPOINTS-getarg(5);
-		set .@dice1,rand(1,6);
+		set @dice1,rand(1,6);
 		next;
-		emotion 57+.@dice1,0;
-		mes "First dice result is "+.@dice1+". Do you want to roll the second dice?";
+		emotion 57+@dice1,0;
+		mes "First dice result is "+@dice1+". Do you want to roll the second dice?";
 		next;
 		if (select("Roll the second dice.")==1){
-			set .@dice2,rand(1,6);
-			emotion 57+.@dice2,0;
-			mes "Second dice result is "+.@dice2+".";
+			set @dice2,rand(1,6);
+			emotion 57+@dice2,0;
+			mes "Second dice result is "+@dice2+".";
 		}
 		if (getarg(0)==-1){
-			if (.@dice1!=.@dice2){ mes "You didn't get the same results"; return;}
-			else if (.@dice1==.@dice2){ mes "You got the same number. Press Close to move block 30."; close2; callfunc("KO_SW",31);}
+			if (@dice1!=@dice2){ mes "You didn't get the same results"; return;}
+			else if (@dice1==@dice2){ mes "You got the same number. Press Close to move block 30."; close2; callfunc("KO_SW",31);}
 		}
 		else{
 			next;
-			set .@dresult,.@dice1+.@dice2;
-			mes .@dice1+" + "+.@dice2+" = "+.@dresult;
+			set .@dresult,@dice1+@dice2;
+			mes @dice1+" + "+@dice2+" = "+.@dresult;
 			if (.@dresult<=getarg(2)){ 
 				mes "You total is lower than "+getarg(2)+". Press Close to move to block "+getarg(3)+"."; 
 				close2;
@@ -190,8 +191,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	if (LREADYHR == 1){
@@ -231,8 +230,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "You are really bad at rolling dice. How can you get a 1 from the start? You can move to block 9 if you pay up 10 LP in this block.";
@@ -257,7 +254,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -271,8 +267,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Used 5 LP so you will have to resist the curse passed down through generations before moving forward.";
@@ -291,8 +285,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters scribbled on the sign.";
 	next;
 	if (.KO_WH$!="") mes .KO_WH$+" was here."; next;
@@ -324,8 +316,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	if (checkquest(5141,PLAYTIME) == 0){
 		mes "You are cursed and cannot move to any other block for 2 minutes.";
 		close;
@@ -365,11 +355,15 @@ OnTouch:
 	mes "Life Point recovers 7 LP.";
 	mes "Cannot exceed maximum 100 LP.";
 	next;
-	if (LPOINTS<94) set LPOINTS,LPOINTS+7;
-	else if (LPOINTS>93) set LPOINTS,100;
-	mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+	if (!@recover){
+		if (LPOINTS<94) set LPOINTS,LPOINTS+7;
+		else if (LPOINTS>93) set LPOINTS,100;
+		mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+		set @recover,1;
+	}
 	callfunc("KO_SL",6,1);
 	close2;
+	set @recover,0;
 	callfunc("KO_SW",@dice+7);
 }
 
@@ -378,7 +372,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -392,7 +385,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Rock-paper-scissors Machine";
@@ -408,8 +400,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Please proceed.";
@@ -424,8 +414,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "If you don't want to be caught, install a trap.";
@@ -433,6 +421,7 @@ OnTouch:
 	if (.trap){
 		mes "You are caught in the trap installed.";
 		mes "Press Close to go back to block 0.";
+		set .trap,0;
 		close2;
 		callfunc("KO_SW",1);
 	}
@@ -442,6 +431,7 @@ OnTouch:
 		case 1:
 			mes "< Used 10 LP >";
 			mes "The trap is installed. Please roll the dice.";
+			set .trap,1;
 			set LPOINTS,LPOINTS-10;
 			next;
 			callfunc("KO_SL",10,1);
@@ -460,7 +450,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Rock-paper-scissors Machine";
@@ -482,11 +471,15 @@ OnTouch:
 	mes "Life Point recovers 7 LP.";
 	mes "Cannot exceed maximum 100 LP.";
 	next;
-	if (LPOINTS<94) set LPOINTS,LPOINTS+7;
-	else if (LPOINTS>93) set LPOINTS,100;
-	mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+	if (!@recover){
+		if (LPOINTS<94) set LPOINTS,LPOINTS+7;
+		else if (LPOINTS>93) set LPOINTS,100;
+		mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+		set @recover,1;
+	}
 	callfunc("KO_SL",13,1);
 	close2;
+	set @recover,0;
 	callfunc("KO_SW",@dice+14);
 }
 
@@ -495,8 +488,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	if (checkquest(5141,PLAYTIME) == 0){
 		mes "You are cursed and cannot move to any other block for 2 minutes.";
 		close;
@@ -529,8 +520,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	if (checkquest(5141,PLAYTIME) == 0){
 		mes "You are cursed and cannot move to any other block for 2 minutes.";
 		close;
@@ -554,7 +543,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Consume 2 LP and roll the dice twice.";
@@ -570,8 +558,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Area cursed with 10 times the normal gravity. You will need 10LP to roll the dice.";
@@ -585,7 +571,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Consume 2 LP and roll the dice twice.";
@@ -600,8 +585,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Move forward.";
@@ -615,19 +598,21 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block is blessed.";
 	mes "Life Point recovers 7 LP.";
 	mes "Cannot exceed maximum 100 LP.";
 	next;
-	if (LPOINTS<94) set LPOINTS,LPOINTS+7;
-	else if (LPOINTS>93) set LPOINTS,100;
-	mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+	if (!@recover){
+		if (LPOINTS<94) set LPOINTS,LPOINTS+7;
+		else if (LPOINTS>93) set LPOINTS,100;
+		mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+		set @recover,1;
+	}
 	callfunc("KO_SL",20,1);
 	close2;
+	set @recover,0;
 	callfunc("KO_SW",@dice+21);
 }
 
@@ -636,8 +621,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Area cursed with 10 times the normal gravity. You will need 10LP to roll the dice.";
@@ -651,8 +634,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	if ($KO_SO == 1){
@@ -689,7 +670,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -706,7 +686,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "consume 2 LP and roll the dice twice.";
@@ -721,8 +700,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	if (checkquest(5141,PLAYTIME) == 0){
 		mes "Cannot move because you are cursed.";
 		close;
@@ -760,7 +737,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -776,19 +752,21 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block is blessed.";
 	mes "Life Point recovers 7 LP.";
 	mes "Cannot exceed maximum 100 LP.";
 	next;
-	if (LPOINTS<94) set LPOINTS,LPOINTS+7;
-	else if (LPOINTS>93) set LPOINTS,100;
-	mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+	if (!@recover){
+		if (LPOINTS<94) set LPOINTS,LPOINTS+7;
+		else if (LPOINTS>93) set LPOINTS,100;
+		mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+		set @recover,1;
+	}
 	callfunc("KO_SL",27,1);
 	close2;
+	set @recover,0;
 	callfunc("KO_SW",@dice+28);
 }
 
@@ -797,8 +775,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "If you don't want to be caught, install a trap.";
@@ -806,6 +782,7 @@ OnTouch:
 	if (.trap){
 		mes "You are caught in the trap installed.";
 		mes "Press Close to go back to block 0.";
+		set .trap,0;
 		close2;
 		callfunc("KO_SW",1);
 	}
@@ -815,6 +792,7 @@ OnTouch:
 		case 1:
 			mes "< Used 10 LP >";
 			mes "The trap is installed. Please roll the dice.";
+			set .trap,1;
 			set LPOINTS,LPOINTS-10;
 			next;
 			callfunc("KO_SL",28,1);
@@ -832,8 +810,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Go forth.";
@@ -848,7 +824,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -883,6 +858,7 @@ OnTouch:
 			mes "<Used 5 LP>";
 			set LPOINTS,LPOINTS-5;
 			callfunc("KO_SL",31,1);
+			close2;
 			callfunc("KO_SW",@dice+32);
 			
 		case 2:
@@ -898,7 +874,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "Rock-paper-scissors Machine";
@@ -911,8 +886,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "You can move to block 39 if you pay all points except for the last 1 LP to roll the dice one last time.";
@@ -940,19 +913,21 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block is blessed.";
 	mes "Life Point recovers 7 LP.";
 	mes "Cannot exceed maximum 100 LP.";
 	next;
-	if (LPOINTS<94) set LPOINTS,LPOINTS+7;
-	else if (LPOINTS>93) set LPOINTS,100;
-	mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+	if (!@recover){
+		if (LPOINTS<94) set LPOINTS,LPOINTS+7;
+		else if (LPOINTS>93) set LPOINTS,100;
+		mes "< Recover "+((LPOINTS==100)?"":"7")+" LP >";
+		set @recover,1;
+	}
 	callfunc("KO_SL",34,1);
 	close2;
+	set @recover,0;
 	callfunc("KO_SW",@dice+35);
 }
 
@@ -961,7 +936,6 @@ mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
-	
 	mes "There are tiny letters on the sign.";
 	next;
 	mes "This block has a trap.";
@@ -971,31 +945,34 @@ OnTouch:
 	end;
 }
 
-// job_ko,41,31,1	script	Sight#ko_36	909,2,2,{
-// mes "Other letters are too small to read. Let's look up close.";
-// close;
+job_ko,41,31,1	script	Sight#ko_36	909,2,2,{
+mes "Other letters are too small to read. Let's look up close.";
+close;
 
-// OnTouch:
-// There are tiny letters on the sign.
-// next;
-// There are only 4 blocks left till the last block.
-// next;
-// Rule 1 (Normal Dice Roll)
-// You get to pass if you get 4 or above but nobody knows what will come from a dice roll.
-// next;
-// Rule 2 
-// If you get 1, 2, or 3 you move right to the arrival point; if you get 4, 5, or 6 you get to choose to move to block 29.
-// next;
-	// switch(select("Try it the other way.:Go by the rule.")){
-	// case 1:
-	// EXAMPLES
-	// The other way (2nd Rule)
-	// The dice came out as 2.
-	// Press Close to move to the arrival point. // Arrival point instead of block 40.. 
-	// case 2:
-	// Apparently First Rule .. (Normal dice roll(You can fall in 37/38/39))
-	// }
-// }
+OnTouch:
+	mes "There are tiny letters on the sign.";
+	next;
+	mes "There are only 4 blocks left till the last block.";
+	next;
+	mes "Rule 1 (Normal Dice Roll)";
+	mes "You get to pass if you get 4 or above but nobody knows what will come from a dice roll.";
+	next;
+	mes "Rule 2";
+	mes "If you get 1, 2, or 3 you move right to the arrival point; if you get 4, 5, or 6 you get to choose to move to block 29.";
+	mes "next;";
+	switch(select("Try it the other way.:Go by the rule.")){
+		case 1:
+			mes "The Other Way (2nd Rule)";
+			callfunc("KO_SD",3,29,3,40,36,1,0,0);
+			end;
+		case 2:
+			callfunc("KO_SL",36,1);
+			close2;
+			if (@dice >= 4){callfunc("KO_SW",@dice+37);}
+			else{callfunc("KO_SW",@dice+37);}
+			end;
+	}
+}
 
 job_ko,33,31,1	script	Sight#ko_37	909,2,2,{
 mes "Other letters are too small to read. Let's look up close.";
@@ -1008,13 +985,13 @@ OnTouch:
 	mes "If you get 1, 3, or 5, move to the arrival point; if you get 2, 4, or 6, go back to the starting point.";
 	callfunc("KO_SL",37,1);
 	next;
-	if (.@dice%2 == 0){
+	if (@dice%2 == 0){
 		mes "Press Close to move to starting point.";
 		close2;
 		callfunc("KO_SW",1);
 		end;
 	}
-	else if (.@dice2 == 1){
+	else if (@dice%2 == 1){
 		mes "Press Close to move to the last block.";
 		close2;
 		callfunc("KO_SW",41);
@@ -1059,6 +1036,7 @@ OnTouch:
 	next;
 	mes "Let's read all the writing on the sign.";
 	mes "You feel like you are moved to another place.";
+	next;
 	completequest 5137;
 	completequest 5140;
 	warp "job_ko",35,113;

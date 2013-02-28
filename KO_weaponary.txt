@@ -17,6 +17,7 @@ switch(select("Stop.:Try to operate it.")){
 		close;
 	case 2:
 		mes "Clank clunk clink";
+		next;
 		warp "amatsu",147,136;
 		end;
 }
