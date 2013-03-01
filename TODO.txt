@@ -1,6 +1,0 @@
-// Things that are not finished yet.
-Old Man NPC (Not repaired and we need to check it complete)
-Battle Test (Final Test, It's apparently easy.. we can copy code from other's jobchange tests) (REMEMBER TO FAIL IT TO SEE WHAT HAPPENS)
-Block 38 still missing, i can't get there..
-Check official behavior of Blessed Blocks (You can cancel the dialog.. but idk when the points are added..)
-Check what happens when LP == 0 || -0 is reached
