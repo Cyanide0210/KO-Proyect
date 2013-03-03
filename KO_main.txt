@@ -12,10 +12,9 @@
 //= 1.2 Fixed Many Errors.	[Dastgir Pojee]
 //============================================================
 
-que_ng,28,156,1	script	Start#ko	-1,4,4,{
+que_ng,28,156,1	script	Start#ko	-1,1,1,{
 OnTouch:
-if (Class!=25 && BaseLevel < 99 && JobLevel < 70) end;
-if (checkquest(5131) == -1){
+if ((BaseJob==25) && (BaseLevel == 99) && (JobLevel == 70) && (checkquest(5131) == -1)){
 	mes "Secret Passage to ^25C18DNinja Guild^25C18D";
 	mes "You hear familiar voices talking to each other.";
 	next;

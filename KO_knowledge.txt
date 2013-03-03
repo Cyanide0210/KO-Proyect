@@ -139,7 +139,7 @@ if (checkquest(5139) == -1){
 					Question("What is the highest job level for a ninja?",2,"70:50:99:100");
 					break;
 				case 21:
-					Question("What is the property of the Lightning Jolt?",2,"Fire:Water:Ground:Wind");
+					Question("What is the property of the Lightning Jolt?",4,"Fire:Water:Ground:Wind");
 					break;
 				case 22:
 					Question("How much does STR/INT go up when Ninja Aura level 5 is used?",2,"4:5:6:7");
