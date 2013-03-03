@@ -224,7 +224,6 @@ if (checkquest(5131)==1){
 					next;
 					mes "^1A95E6You hear Guide Gion's voice faintly as you slip away.^1A95E6";
 					next;
-					//completequest 5133; setquest 5134;
 					changequest 5133,5134;	//New path
 					mes "[Guide Gion]";
 					mes "If you are prepared to follow me, Guide Gion, on the Oboro path, we will meet again.";
@@ -478,23 +477,7 @@ if (select("Please continue with the family story.")==1){
 			end;
 	}
 }
-if (checkquest(5136) == 1 && checkquest(5135) == 1 ){
-	mes "[Guide Gion]";
-	mes "I see you are in the middle of the Test of Knowledge. Will you go back to the test site?";
-		switch(select("Go back to the test site.:Visit the village.")){
-			case 1:
-				mes "Test of Knowledge The test site is over here.";
-				sleep2 2000;
-				warp "job_ko",72,128;
-				end;
-			case 2:
-				mes "[Guide Gion]";
-				mes "The village is over here.";
-				next;
-				warp "amatsu",147,136;
-				end;
-		}
-}
+
 function	KO_IB	{	//Kagerou/Oboro In-Between
 	//0=Test of Knowledge:1=Test of Survival:2=Test of Weaponry:3=Test of Battle
 	mes "[Guide Gion]";
@@ -503,10 +486,10 @@ function	KO_IB	{	//Kagerou/Oboro In-Between
 		case 1:
 		mes "Test of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+" The test site is over here.";
 		sleep2 2000;
-		if (getarg(0)==0){warp "job_ko",121,129;}
-		if (getarg(0)==1){warp "job_ko",72,128;}
-		if (getarg(0)==2){warp "job_ko",72,128;}
-		if (getarg(0)==3){warp "job_ko",72,128;}
+		if (getarg(0)==0){warp "job_ko",72,128;}
+		if (getarg(0)==1){warp "job_ko",62,16;}
+		if (getarg(0)==2){warp "job_ko",121,129;}
+		if (getarg(0)==3){warp "job_ko",72,128;} // Needs Info
 		end;
 	case 2:
 		mes "[Guide Gion]";
