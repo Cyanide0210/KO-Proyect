@@ -181,12 +181,12 @@ function	script	KO_SR	{	//Kagerou/Oboro Survival-RPS(Win,Lose,Draw,Location,Bloc
 		}
 	}
 }
-////////////////////// FUNCTIONS END /////////////////////////////////////////////////////
+//=== FUNCTIONS END ===//
 
 
 
 
-job_ko,57,16,1	script	Sight#ko_00	909,2,2,{
+job_ko,57,16,1	script	Sight#ko_00	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -225,7 +225,7 @@ OnTouch:
 	}
 }
 
-job_ko,49,16,1	script	Sight#ko_01	909,2,2,{
+job_ko,49,16,1	script	Sight#ko_01	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -249,7 +249,7 @@ OnTouch:
 	}
 }
 
-job_ko,41,16,1	script	Sight#ko_02	909,2,2,{
+job_ko,41,16,1	script	Sight#ko_02	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -262,7 +262,7 @@ OnTouch:
 	callfunc("KO_SW",1);
 }
 
-job_ko,33,16,1	script	Sight#ko_03	909,2,2,{
+job_ko,33,16,1	script	Sight#ko_03	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -280,14 +280,17 @@ OnTouch:
 	}
 }
 
-job_ko,25,16,1	script	Sight#ko_04	909,2,2,{
+job_ko,25,16,1	script	Sight#ko_04	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
 OnTouch:
 	mes "There are tiny letters scribbled on the sign.";
 	next;
-	if (.KO_WH$!="") mes .KO_WH$+" was here."; next;
+	if (.KO_WH$!="") {
+		mes .KO_WH$+" was here.";
+		next;
+	}
 	mes "Should I leave my name since taking the test is a special occasion?";
 	next;
 	switch(select("Use 5 LP and leave your name.:Continue to roll the dice.")){
@@ -311,7 +314,7 @@ OnTouch:
 	}
 }
 
-job_ko,17,16,1	script	Sight#ko_05	909,2,2,{
+job_ko,17,16,1	script	Sight#ko_05	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -344,7 +347,7 @@ OnTouch:
 	}
 }
 
-job_ko,17,24,1	script	Sight#ko_06	909,2,2,{
+job_ko,17,24,1	script	Sight#ko_06	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -367,7 +370,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+7);
 }
 
-job_ko,17,32,1	script	Sight#ko_07	909,2,2,{
+job_ko,17,32,1	script	Sight#ko_07	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -380,7 +383,7 @@ OnTouch:
 	callfunc("KO_SW",6);
 }
 
-job_ko,17,40,1	script	Sight#ko_08	909,2,2,{
+job_ko,17,40,1	script	Sight#ko_08	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -395,7 +398,7 @@ OnTouch:
 	callfunc("KO_SR",15,0,-1,8,0,0);	
 }
 
-job_ko,17,48,1	script	Sight#ko_09	909,2,2,{
+job_ko,17,48,1	script	Sight#ko_09	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -409,7 +412,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+10);
 }
 
-job_ko,17,56,1	script	Sight#ko_10	909,2,2,{
+job_ko,17,56,1	script	Sight#ko_10	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -443,9 +446,16 @@ OnTouch:
 	}
 }
 
-///////////////////////////////// 11 Block /////////////////////////////////
+job_ko,22,60,1	script	Sight#ko_11	909,1,1,{
+mes "There are tiny letters on the sign.";
+next;
+mes "This block has a trap.";
+mes "Press Close to go back to block 9.";
+close2;
+callfunc("KO_SW",10);
+}
 
-job_ko,30,60,1	script	Sight#ko_12	909,2,2,{
+job_ko,30,60,1	script	Sight#ko_12	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -460,7 +470,7 @@ OnTouch:
 	callfunc("KO_SR",20,9,-1,12,0,0);
 }
 
-job_ko,38,60,1	script	Sight#ko_13	909,2,2,{
+job_ko,38,60,1	script	Sight#ko_13	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -483,7 +493,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+14);
 }
 
-job_ko,46,60,1	script	Sight#ko_14	909,2,2,{
+job_ko,46,60,1	script	Sight#ko_14	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -515,7 +525,7 @@ OnTouch:
 	}
 }
 
-job_ko,54,60,1	script	Sight#ko_15	909,2,2,{
+job_ko,54,60,1	script	Sight#ko_15	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -538,7 +548,7 @@ OnTouch:
 	close;
 }
 
-job_ko,62,60,1	script	Sight#ko_16	909,2,2,{
+job_ko,62,60,1	script	Sight#ko_16	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -553,7 +563,7 @@ OnTouch:
 	}
 }
 
-job_ko,62,51,1	script	Sight#ko_17	909,2,2,{
+job_ko,62,51,1	script	Sight#ko_17	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -566,7 +576,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+18);
 }
 
-job_ko,62,43,1	script	Sight#ko_18	909,2,2,{
+job_ko,62,43,1	script	Sight#ko_18	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -580,7 +590,7 @@ OnTouch:
 
 }
 
-job_ko,62,35,1	script	Sight#ko_19	909,2,2,{
+job_ko,62,35,1	script	Sight#ko_19	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -593,7 +603,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+20);
 }
 
-job_ko,62,27,1	script	Sight#ko_20	909,2,2,{
+job_ko,62,27,1	script	Sight#ko_20	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -616,7 +626,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+21);
 }
 
-job_ko,57,23,1	script	Sight#ko_21	909,2,2,{
+job_ko,57,23,1	script	Sight#ko_21	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -629,7 +639,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+22);
 }
 
-job_ko,49,23,1	script	Sight#ko_22	909,2,2,{
+job_ko,49,23,1	script	Sight#ko_22	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -665,7 +675,7 @@ OnTouch:
 	}
 }
 
-job_ko,41,23,1	script	Sight#ko_23	909,2,2,{
+job_ko,41,23,1	script	Sight#ko_23	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -681,7 +691,7 @@ OnTouch:
 }
 
 
-job_ko,33,23,1	script	Sight#ko_24	909,2,2,{
+job_ko,33,23,1	script	Sight#ko_24	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -695,7 +705,7 @@ OnTouch:
 	callfunc("KO_SD",8,-2,8,19,24,2,25,30);
 }
 
-job_ko,25,23,1	script	Sight#ko_25	909,2,2,{
+job_ko,25,23,1	script	Sight#ko_25	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -732,7 +742,7 @@ OnTouch:
 	}
 }
 
-job_ko,25,32,1	script	Sight#ko_26	909,2,2,{
+job_ko,25,32,1	script	Sight#ko_26	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -747,7 +757,7 @@ OnTouch:
 	
 }
 
-job_ko,25,40,1	script	Sight#ko_27	909,2,2,{
+job_ko,25,40,1	script	Sight#ko_27	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -770,7 +780,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+28);
 }
 
-job_ko,25,48,1	script	Sight#ko_28	909,2,2,{
+job_ko,25,48,1	script	Sight#ko_28	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -805,7 +815,7 @@ OnTouch:
 			callfunc("KO_SW",@dice+29);
 	}
 }
-job_ko,30,52,1	script	Sight#ko_29	909,2,2,{
+job_ko,30,52,1	script	Sight#ko_29	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -819,7 +829,7 @@ OnTouch:
 	end;
 }
 
-job_ko,38,52,1	script	Sight#ko_30	909,2,2,{
+job_ko,38,52,1	script	Sight#ko_30	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -834,7 +844,7 @@ OnTouch:
 	
 }
 
-job_ko,46,52,1	script	Sight#ko_31	909,2,2,{
+job_ko,46,52,1	script	Sight#ko_31	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -869,7 +879,7 @@ OnTouch:
 
 }
 
-job_ko,46,52,1	script	Sight#ko_32	909,2,2,{
+job_ko,46,52,1	script	Sight#ko_32	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -881,7 +891,7 @@ OnTouch:
 	callfunc("KO_SR",-2,0,0,32,33,38);
 }
 
-job_ko,54,43,1	script	Sight#ko_33	909,2,2,{
+job_ko,54,43,1	script	Sight#ko_33	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -908,7 +918,7 @@ OnTouch:
 	}
 }
 
-job_ko,54,35,1	script	Sight#ko_34	909,2,2,{
+job_ko,54,35,1	script	Sight#ko_34	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -931,7 +941,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+35);
 }
 
-job_ko,49,31,1	script	Sight#ko_35	909,2,2,{
+job_ko,49,31,1	script	Sight#ko_35	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -945,7 +955,7 @@ OnTouch:
 	end;
 }
 
-job_ko,41,31,1	script	Sight#ko_36	909,2,2,{
+job_ko,41,31,1	script	Sight#ko_36	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -974,7 +984,7 @@ OnTouch:
 	}
 }
 
-job_ko,33,31,1	script	Sight#ko_37	909,2,2,{
+job_ko,33,31,1	script	Sight#ko_37	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -1001,7 +1011,7 @@ OnTouch:
 
 ///////////////////////////////// 38 Block /////////////////////////////////
 
-job_ko,38,44,1	script	Sight#ko_39	909,2,2,{
+job_ko,38,44,1	script	Sight#ko_39	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
@@ -1024,7 +1034,7 @@ OnTouch:
 	}
 }
 
-job_ko,46,41,1	script	Sight#ko_40	909,2,2,{
+job_ko,46,41,1	script	Sight#ko_40	909,1,1,{
 mes "Other letters are too small to read. Let's look up close.";
 close;
 
