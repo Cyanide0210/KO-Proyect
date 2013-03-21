@@ -97,6 +97,11 @@ if (checkquest(5145)==1){
 					erasequest 5145;
 					erasequest 5138;
 					erasequest 5143;
+					set KO_QWC,1;
+					set KO_QWCC,1;
+					if (KO_QKCC == 1 && KO_QSCC == 1 || KO_QKCC == 1 && KO_QWCC == 1 || KO_QSCC == 1 && KO_QKCC == 1 || KO_QSCC == 1 && KO_QWCC == 1 || KO_QWCC == 1 && KO_QSCC == 1 || KO_QWCC == 1 && KO_QKCC == 1)
+					set KOLQ,"Weaponary";
+					set KOHS,KOHS+1;
 					mes "[Red Leopard Joe]";
 					mes "'"+strcharinfo(0)+"'";
 					mes "Passed the weapon test!!";

@@ -234,7 +234,7 @@ if (checkquest(5139) == -1){
 		next;
 		mes "[Cougar]";
 		mes "... ... ...";
-		if (@cougar_correct >= 9) {
+		if (@cougar_correct > 8) {
 			mes "[Cougar]";
 			mes "You passed!";
 			next;
@@ -254,6 +254,10 @@ if (checkquest(5139) == -1){
 			mes "Well... I'm curious how far your strong will can take you through other tests.";
 			next;
 			mes "[Cougar]";
+			set KOHS,KOHS+1;
+			set KO_QKCC,1;
+			if (KO_QKCC == 1 && KO_QSCC == 1 || KO_QKCC == 1 && KO_QWCC == 1 || KO_QSCC == 1 && KO_QKCC == 1 || KO_QSCC == 1 && KO_QWCC == 1 || KO_QWCC == 1 && KO_QSCC == 1 || KO_QWCC == 1 && KO_QKCC == 1)
+			set KOLQ,"Knowledge";
 			completequest 5136;
 			erasequest 5139;
 			mes "I'll let you go now so go report back to Guide Gion with your results.";
