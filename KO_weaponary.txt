@@ -95,7 +95,8 @@ if (checkquest(5145)==1){
 					if(!countitem2(13074,1,0,@refine,0,0,0,0)){mes "Remove any extra cards inserted on it"; close;}
 					delitem2 13074,1,0,@refine,0,0,0,0,0;
 					erasequest 5145;
-					erasequest 5138;
+					completequest 5138;
+					set KO_QD,KO_QD+4;
 					erasequest 5143;
 					set KO_Q, 2;
 					mes "[Red Leopard Joe]";
@@ -218,60 +219,61 @@ if (checkquest(5145)==1){
 
 	}
 } else if (checkquest(5138)==1){
-mes "[Red Leopard Joe]";
-mes "Been a While";
-next;
-if (select("Long time indeed,Joe.")==1){
 	mes "[Red Leopard Joe]";
-	mes "You aren't surprised I'm here. Did you meet ^0237FDCougar^0237FD before coming here?";
+	mes "Been a While";
 	next;
-	mes "[Red Leopard Joe]";
-	mes "Don't like it that I'm not the first one you visited but that is not important.";
-	next;
-	mes "[Red Leopard Joe]";
-	mes "Alright! "+strcharinfo(0);
-	mes "Welcome to the workshop where weapons are created for the family.";
-	next;
-	mes "[Red Leopard Joe]";
-	mes "Our family has been creating and using unique weapons to serve our secret missions since ancient times.";
-	next;
-	if (select("Really? At Einbroch?")==1){
+	if (select("Long time indeed,Joe.")==1){
 		mes "[Red Leopard Joe]";
-		mes "Hmm? You are not as slow as I thought you were!";
+		mes "You aren't surprised I'm here. Did you meet ^0237FDCougar^0237FD before coming here?";
 		next;
 		mes "[Red Leopard Joe]";
-		mes "Yes. Einbroch is known as an industrial city, the city of great blacksmiths create new technology.";
+		mes "Don't like it that I'm not the first one you visited but that is not important.";
 		next;
 		mes "[Red Leopard Joe]";
-		mes "My mission is to analyze their technology and report back to the family.";
+		mes "Alright! "+strcharinfo(0);
+		mes "Welcome to the workshop where weapons are created for the family.";
 		next;
 		mes "[Red Leopard Joe]";
-		mes "I spoke more than I intended to.";
+		mes "Our family has been creating and using unique weapons to serve our secret missions since ancient times.";
 		next;
-		mes "[Red Leopard Joe]";
-		mes "Did you bring enough ^6848B7Iron Ore^6848B7, ^6848B7Iron^6848B7, ^6848B7Steel^6848B7, ^6848B7Phracon^6848B7, ^6848B7Emveretaron^6848B7, ^6848B7Rough Oridecon^6848B7, and ^6848B7Rough Elunium^6848B7?";
-		next;
-		mes "Let's now create a new prototype weapon.";
-		next;
-		misceffect 191;
-		mes "[Red Leopard Joe]";
-		mes "Feel free to use tools from here,";
-		next;
-		misceffect 191;
-		mes "[Red Leopard Joe]";
-		mes "there";
-		next;
-		misceffect 191;
-		setquest 5142;	//Prototype-(1)
-		mes "[Red Leopard Joe]";
-		mes "and everywhere else. Now let's begin!!";
-		close;
+		if (select("Really? At Einbroch?")==1){
+			mes "[Red Leopard Joe]";
+			mes "Hmm? You are not as slow as I thought you were!";
+			next;
+			mes "[Red Leopard Joe]";
+			mes "Yes. Einbroch is known as an industrial city, the city of great blacksmiths create new technology.";
+			next;
+			mes "[Red Leopard Joe]";
+			mes "My mission is to analyze their technology and report back to the family.";
+			next;
+			mes "[Red Leopard Joe]";
+			mes "I spoke more than I intended to.";
+			next;
+			mes "[Red Leopard Joe]";
+			mes "Did you bring enough ^6848B7Iron Ore^6848B7, ^6848B7Iron^6848B7, ^6848B7Steel^6848B7, ^6848B7Phracon^6848B7, ^6848B7Emveretaron^6848B7, ^6848B7Rough Oridecon^6848B7, and ^6848B7Rough Elunium^6848B7?";
+			next;
+			mes "Let's now create a new prototype weapon.";
+			next;
+			misceffect 191;
+			mes "[Red Leopard Joe]";
+			mes "Feel free to use tools from here,";
+			next;
+			misceffect 191;
+			mes "[Red Leopard Joe]";
+			mes "there";
+			next;
+			misceffect 191;
+			setquest 5142;	//Prototype-(1)
+			mes "[Red Leopard Joe]";
+			mes "and everywhere else. Now let's begin!!";
+			close;
+		}
 	}
-}
 } else{
 	mes "[Red Leopard Joe]";
 	mes "Oh, I almost forgot";
 	mes "Go report the test results to Gion";
+	set KO_QD,KO_QD+1;
 	next;
 	warp "job_ko",26,104;
 	end;

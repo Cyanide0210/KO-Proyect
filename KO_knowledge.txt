@@ -255,6 +255,7 @@ if (checkquest(5139) == -1){
 			next;
 			mes "[Cougar]";
 			completequest 5136;
+			set KO_QD,KO_QD+1;
 			erasequest 5139;
 			mes "I'll let you go now so go report back to Guide Gion with your results.";
 			warp "job_ko",26,104;

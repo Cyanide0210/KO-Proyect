@@ -1050,6 +1050,7 @@ OnTouch:
 	completequest 5137;
 	completequest 5140;
 	set KO_Q, 1;
+	set KO_QD,KO_QD+2;
 	warp "job_ko",35,113;
 
 }
