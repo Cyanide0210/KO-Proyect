@@ -97,6 +97,7 @@ if (checkquest(5145)==1){
 					erasequest 5145;
 					erasequest 5138;
 					erasequest 5143;
+					set KO_Q, 2;
 					mes "[Red Leopard Joe]";
 					mes "'"+strcharinfo(0)+"'";
 					mes "Passed the weapon test!!";

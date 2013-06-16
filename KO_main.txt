@@ -405,7 +405,7 @@ else if (checkquest(5131)==1){
 
 if (checkquest(5136)==2){
 mes "[Guide Gion]";
-mes "You've passed the Test of Knowledge.";
+mes "You've passed the Test of "+((KO_Q))?"Knowledge":"Survival":"Weaponry")+".";
 next;
 }
 mes "[Guide Gion]";
