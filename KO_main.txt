@@ -88,7 +88,7 @@ else{
 }
 
 job_ko,25,115,1	script	Old Man#ko	909,{
-function KO_IB;
+function KO_IB; function KO_QS;
 if (checkquest(5131)==1){
 	mes "^1A95E6An old man looking hale and hearty is sitting and gazing vacantly.^1A95E6";
 	next;
