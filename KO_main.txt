@@ -87,7 +87,8 @@ else{
 }
 
 job_ko,25,115,1	script	Old Man#ko	909,{
-if (checkquest(5131)==1){
+if (checkquest(5138) == 1 && checkquest(5135) == 1) callfunc "KO_IB",2; else if (checkquest(5137) == 1 && checkquest(5135) == 1 ) callfunc "KO_IB",1;
+else if (checkquest(5131)==1){
 	mes "^1A95E6An old man looking hale and hearty is sitting and gazing vacantly.^1A95E6";
 	next;
 	switch(select("Ignore.:Talk to him.")){
@@ -374,7 +375,6 @@ if (checkquest(5131)==1){
 				next;
 				if(select("Familiar face?")==1){
 					setquest 5136;
-					set KO_Q,5136;
 					mes "[Guide Gion]";
 					mes "Ha ha ha. You'll know when we get there. The Test of Knowledge is taken over here.";
 					sleep2 2000;
@@ -386,7 +386,6 @@ if (checkquest(5131)==1){
 				mes "You are starting with the ^339CCCTest of Survival^339CCC? It's a lonesome test that you have to face alone.";
 				mes "But I believe you can handle it. The Test of Survival is taken over here.";
 				setquest 5137;
-				set KO_Q,5137;
 				sleep2 2000;
 				warp "job_ko",62,16;
 				end;
@@ -394,7 +393,6 @@ if (checkquest(5131)==1){
 				mes "You are starting with the ^339CCCTest of Weaponry^339CCC? I have something to give you before you go.";
 				next;
 				setquest 5138;	//Weapons test
-				set KO_Q,5138;
 				getitem 1002,5; getitem 1010,1;
 				mes "You receive 5 Iron Ore and 1 Phracon.";
 				mes "You will find these useful. The Test of Weaponry is taken over here.";
@@ -403,15 +401,8 @@ if (checkquest(5131)==1){
 				end;
 		}
 	}
-} else if (checkquest(5135) == 1 && checkquest(5138) == 1){
-	function KO_IB;
-	KO_IB(2);
-}
+} 
 
-if (checkquest(5137) == 1 && checkquest(5135) == 1 ){
-	function KO_IB;
-	KO_IB(1);
-}
 if (checkquest(5136)==2){
 mes "[Guide Gion]";
 mes "You've passed the Test of Knowledge.";
