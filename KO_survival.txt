@@ -1047,10 +1047,6 @@ OnTouch:
 	mes "Let's read all the writing on the sign.";
 	mes "You feel like you are moved to another place.";
 	next;
-	set KOHS,KOHS+1;
-	set KO_QSCC,1;
-	if (KO_QKCC == 1 && KO_QSCC == 1 || KO_QKCC == 1 && KO_QWCC == 1 || KO_QSCC == 1 && KO_QKCC == 1 || KO_QSCC == 1 && KO_QWCC == 1 || KO_QWCC == 1 && KO_QSCC == 1 || KO_QWCC == 1 && KO_QKCC == 1)
-	set KOLQ,"Survival";
 	completequest 5137;
 	completequest 5140;
 	warp "job_ko",35,113;
