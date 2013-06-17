@@ -65,6 +65,7 @@ if (checkquest(5139) == -1){
 			next;
 			mes "[Cougar]";
 			mes "Let's start.";
+			next;
 			function Question;
 			set @cougar_correct,0;
 			.@k$ = "";
@@ -234,7 +235,8 @@ if (checkquest(5139) == -1){
 		next;
 		mes "[Cougar]";
 		mes "... ... ...";
-		if (@cougar_correct >= 9) {
+		next;
+		if (@cougar_correct > 8) {
 			mes "[Cougar]";
 			mes "You passed!";
 			next;
@@ -255,6 +257,7 @@ if (checkquest(5139) == -1){
 			next;
 			mes "[Cougar]";
 			completequest 5136;
+			set KO_QD,KO_QD+1;
 			erasequest 5139;
 			mes "I'll let you go now so go report back to Guide Gion with your results.";
 			warp "job_ko",26,104;
