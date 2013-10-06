@@ -15,6 +15,70 @@
 //=		to official behaviour, Added Cutins.	  [Dastgir Pojee]
 //============================================================
 
+function	script	KO_IB	{ //Kagerou/Oboro In-Between
+	//0=Test of Knowledge:1=Test of Survival:2=Test of Weaponry:3=Test of Battle
+	mes "[Guide Gion]";
+	mes "I see you are in the middle of the ^339CCCTest of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+"^339CCC. Will you go back to the test site?";
+	switch(select("Go back to the test site.:Visit the village.")){
+		case 1:
+		mes "Test of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+" The test site is over here.";
+		sleep2 2000;
+		if (getarg(0)==0){warp "job_ko",72,128;}
+		if (getarg(0)==1){warp "job_ko",62,16;}
+		if (getarg(0)==2){warp "job_ko",121,129;}
+		if (getarg(0)==3){warp "job_ko",72,128;} // Needs Info
+		end;
+	case 2:
+		mes "[Guide Gion]";
+		mes "The village is over here.";
+		warp "amatsu",147,136;
+		end;
+	}
+}
+function	script	KO_QS	{	//Kagerou/Oboro QuestSelect.
+	//1=Test of Knowledge:2=Test of Survival:3=Test of Weaponry:4=Test of Battle
+	if (getarg(1)<3){
+		mes "[Guide Gion]";
+		mes "You are starting with the ^339CCCTest of"+((getarg(0)==1)?"Knowledge":((getarg(0)==2)?"Survival":"Weaponry"))+"^339CCC"+((getarg(1)==2)?" as Second test.":".");
+	}
+	switch(getarg(0)){
+		case 1:
+			if(select("Familiar face?")==1){
+				mes "Then I will get to see a familiar face after so long";
+				next;
+				setquest 5136;
+				mes "[Guide Gion]";
+				mes "Ha ha ha. You'll know when we get there. The Test of Knowledge is taken over here.";
+				sleep2 2000;
+				warp "job_ko",72,128;
+				end;
+			}
+		case 2:
+			mes "It's a lonesome test that you have to face alone.";
+			mes "But I believe you can handle it. The Test of Survival is taken over here.";
+			setquest 5137;
+			sleep2 2000;
+			warp "job_ko",62,16;
+			end;
+		case 3:
+			mes "I have something to give you before you go.";
+			next;
+			setquest 5138;	//Weapons test
+			getitem 1002,5; getitem 1010,1;
+			mes "You receive 5 Iron Ore and 1 Phracon.";
+			mes "You will find these useful. The Test of Weaponry is taken over here.";
+			sleep2 3000;
+			warp "job_ko",121,129;
+			end;
+		case 4:	//Need Dialog
+			next;
+			setquest 5146;
+			sleep2 2000;
+			warp "job_ko",72,128;	//NEED WARP CO-ORD
+			end;
+	}
+}
+
 que_ng,28,156,1	script	Start#ko	-1,1,1,{
 OnTouch:
 if ((BaseJob==25) && (BaseLevel >= 99) && (JobLevel >= 70) && (checkquest(5131) == -1)){
@@ -268,6 +332,7 @@ if (checkquest(5131)==1){
 		mes "I know you are curious what these tests are. Let me explain one by one.";
 		while (1) {
 			if (KO_Q&1 && KO_Q&2 && KO_Q&4 && KO_Q&8){
+				next;
 				changequest 5134,5135;	//4 tests
 				next;
 				mes "[Guide Gion]";

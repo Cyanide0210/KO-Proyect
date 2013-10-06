@@ -66,6 +66,7 @@ if (checkquest(5139) == -1){
 			next;
 			mes "[Cougar]";
 			mes "Let's start.";
+			next;
 			function Question;
 			set @cougar_correct,0;
 			.@k$ = "";
