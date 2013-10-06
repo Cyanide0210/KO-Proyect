@@ -1,0 +1,110 @@
+//===== Hercules Script ======================================
+//= Kagerou/Oboro Job Change Quest
+//===== By: ================================================== 
+//= Dastgir Pojee
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Description: ========================================= 
+//= Kagerou/Oboro Job Change NPC
+//===== Additional Comments: ================================= 
+//= 1.0 Extracted from iRO			[Dastgir Pojee]
+//============================================================
+job_ko,148,46,5	script	Cougar#ko2	588,{
+	cutin "job_ko02",2;
+	if (!@KO_MK){	//You have to talk to npc once you killed the monster
+		mes "[Guide Gion]";
+		mes "Looks like you haven't taken care of the target yet.";
+		next;
+		mes "I'll tell you once more. The taget is the Family Secret.";	//Red Colour
+		cutin "",255;
+		close;
+	}else{
+		mes "[Guide Gion]";
+		mes "Looks like you've taken care of the target. Hmm.";
+		next;
+		mes "[Gion] Interrupting the Test of Battle.";
+		next;
+		cutin "",255; cutin "job_ko04",2;
+		mes "[Guide Gion]";
+		mes "The Test of Battle will be put off for a while. Don't worry because this does not have affect to other tests.";
+		next;
+		mes "[Gion] My Friend "+strcharinfo(0)+" made it to "+((Sex)?"Kagerou":"Oboro")+" Path. Congratulations!!";
+		next;
+		mes "[Guide Gion]";
+		mes "My friend "+strcharinfo(0)+" made it to "+((Sex)?"Kagerou":"Oboro")+" Path. Congratulations!!";
+		next;
+		cutin "",255; cutin "job_ko2",2;
+		mes "[Guide Gion]";
+		mes "It is pleasant to meet a youth that is walking through a new path.";
+		next;
+		cutin "",255;
+		mes "[Someone's Voice]";
+		mes "Wait for a while, Gion.";
+		next;
+		cutin "job_ko04",2;
+		mes "[Guide Gion]";
+		mes "I'm sorry I almost forgot about you two. Do you have anything to share with "+strcharinfo(0)+"?";
+		next;
+		cutin "",255; cutin "job_ko01",2;
+		mes "[Cougar]";
+		mes "Hmm... Embarrassing... to speak so suddenly...";
+		next;
+		mes "[Cougar]";
+		mes strcharinfo(0)+" you are now a proud member of our family. Always hold your head high and";
+		next;
+		mes "[Cougar]";
+		mes "^777777(Gai's voice fades out.)^000000.";
+		mes "I'm sorry I strangled you when we first met.";
+		next;
+		cutin "",255;
+		hideoffnpc "Red Leopard Joe#ko2";
+		mes "[Red Leopard Joe]";
+		mes "Puhahaha! Gai is all talk. I know I was know valuable to you than that Gai.";
+		next;
+		mes "[Red Leopard Joe]";
+		mes "I did some work on the prototype dagger you made.";
+		next;
+		mes "[Red Leopard Joe]";
+		mes "Kurenai's now shines beatifully with a scarlet glow after I did the finishing touches.";
+		next;
+		mes "[Red Leopard Joe]";
+		mes "I named your weapons on my own but I know you'll like the name.";
+		next;
+		hideonnpc "Red Leopard Joe#ko2";
+		cutin "",255; cutin "job_ko01",2;
+		mes "[Guide Gion]";
+		mes "I don't have much to add because Gai and Joe said it all.";
+		next;
+		mes "[Guide Gion]";
+		mes "I'm just sorry that the environment of all these tests could have been better for our later generation.";
+		next;
+		mes "[Guide Gion]";
+		mes "You only need to look forward and never turn back.";
+		next;
+		mes "[Guide Gion]";
+		mes "I hope the blessings of Kagerou, dancing sun and Oboro, misty moonlight will be with you on your journey ahead.";
+		if(Sex){jobchange 4211;}else{jobchange 4212;}
+		cutin "",255;
+		close2;
+		warp "que_ng",28,150;
+		end;
+
+	}
+	close;
+OnMonster:
+	set @KO_MK,1;
+	initnpctimer;
+	end;
+	
+OnTimer60000:
+	stopnpctimer;
+OnInit:
+	areamonster "job_ko",100,50,200,100,"Family Secret",1049,1,strnpcinfo(0)+":OnMonster";	//Family Secret = Picky.
+	end;
+}
+
+job_ko,144,46,5	script	Red Leopard Joe#ko2	999,{	//Sprite ID Needed
+OnInit:
+	hideonnpc "Red Leopard Joe#ko2";
+	end;
+}

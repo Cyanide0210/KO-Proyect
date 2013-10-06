@@ -1,14 +1,15 @@
-//===== rAthena Script ======================================
+//===== Hercules Script ======================================
 //= Kagerou/Oboro Job Change Quest
 //===== By: ================================================== 
 //= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.2
 //===== Description: ========================================= 
 //= Test of Knowledge KO
 //===== Additional Comments: ================================= 
 //= 1.0 Extracted from iRO(Official?) [M45T3R]/[Dastgir Pojee]
 //= 1.1 Fixed Many Errors.	[Dastgir Pojee]
+//= 1.2 Added a missing next.	[Dastgir Pojee]
 //============================================================
 
 job_ko,81,124,1	script	Cougar#ko	909,{
@@ -35,7 +36,7 @@ if (checkquest(5139) == -1){
 		next;
 		switch(select("Yes:No")){	//Sets the quest on both the cases.
 			case 1:
-				setquest 5139;
+				setquest 5139;	//The Guy looks familiar!!
 				mes "[Cougar]";
 				mes "That's a relief. Let me know when you are ready to start the test.";
 				close;
@@ -235,6 +236,7 @@ if (checkquest(5139) == -1){
 		mes "[Cougar]";
 		mes "... ... ...";
 		if (@cougar_correct >= 9) {
+			next;
 			mes "[Cougar]";
 			mes "You passed!";
 			next;
