@@ -99,7 +99,7 @@ OnMonster:
 OnTimer60000:
 	stopnpctimer;
 OnInit:
-	areamonster "job_ko",100,50,200,100,"Family Secret",1049,1,strnpcinfo(0)+":OnMonster";	//Family Secret = Picky.
+	areamonster "job_ko",100,50,200,100,"Family Secret",1049,1,strnpcinfo(0)+"::OnMonster";	//Family Secret = Picky.
 	end;
 }
 

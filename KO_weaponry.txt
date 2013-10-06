@@ -95,11 +95,11 @@ if (checkquest(5145)==1){
 						if (KO_OPT==1){
 							if(!countitem2(13074,1,0,@refine,0,0,0,0)){mes "Remove any extra cards inserted on it"; close;}
 							delitem2 13074,1,0,@refine,0,0,0,0,0;
-							getnameditem 13075;
+							getnameditem 13075,strcharinfo(0);
 						}else if (KO_OPT==2){
 							if(!countitem2(13312,1,0,@refine,0,0,0,0)){mes "Remove any extra cards inserted on it"; close;}
 							delitem2 13312,1,0,@refine,0,0,0,0,0;
-							getnameditem 13311;
+							getnameditem 13311,strcharinfo(0);
 						}
 						erasequest 5145;
 						completequest 5138;
