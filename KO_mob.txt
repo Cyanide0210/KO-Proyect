@@ -1,90 +1,102 @@
+//===== Hercules Script ======================================
+//= Kagerou/Oboro Job Change Quest
+//===== By: ================================================== 
+//= Dastgir Pojee
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Description: ========================================= 
+//= Kagerou/Oboro Monster
+//===== Additional Comments: ================================= 
+//= 1.0 Extracted from iRO			[Dastgir Pojee]
+//= 1.1 Haha. I copied map_name with " [Dastgir Pojee]
+//============================================================
 //Kagerou's
 //Kagerou's Past
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Past"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Past"	1031,5,0,0,0
 //Kagerou's Memory
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Memory"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Memory"	1031,5,0,0,0
 //Kagerou's Mistake
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Mistake"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Mistake"	1031,5,0,0,0
 //Kagerou's Legacy
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Kagerou's Legacy"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Kagerou's Legacy"	1031,5,0,0,0
 //Family's
 //Family's Past
-"job_ko",100,50,200,100	monster	"Family's Past"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Past"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Past"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Past"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Past"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Past"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Past"	1031,5,0,0,0
 //Family's Memory
-"job_ko",100,50,200,100	monster	"Family's Memory"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Memory"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Memory"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Memory"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Memory"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Memory"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Memory"	1031,5,0,0,0
 //Family's Mistake
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Mistake"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Mistake"	1031,5,0,0,0
 //Family's Legacy
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Family's Legacy"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Family's Legacy"	1031,5,0,0,0
 //Oboro's
 //Oboro's Past
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Past"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Past"	1031,5,0,0,0
 //Oboro's Memory
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Memory"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Memory"	1031,5,0,0,0
 //Oboro's Mistake
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Mistake"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Mistake"	1031,5,0,0,0
 //Oboro's Legacy
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1049,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1113,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1002,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1007,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1010,5,0,0,0
-"job_ko",100,50,200,100	monster	"Oboro's Legacy"	1031,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1049,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1113,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1002,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1007,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1010,5,0,0,0
+job_ko,100,50,200,100	monster	"Oboro's Legacy"	1031,5,0,0,0
 /*
 Notes by Dastgir Pojee
 Picky = 1049
