@@ -19,7 +19,10 @@ job_ko,148,46,5	script	Cougar#ko2	588,{
 		close2;
 		cutin "",255;
 		end;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 14cde128c5f4efad8d2996f391355e35be30a50c
 	}else{
 		mes "[Guide Gion]";
 		mes "Looks like you've taken care of the target. Hmm.";
