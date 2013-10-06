@@ -19,6 +19,10 @@ job_ko,148,46,5	script	Cougar#ko2	588,{
 		close2;
 		cutin "",255;
 		end;
+<<<<<<< HEAD
+=======
+		
+>>>>>>> beta
 	}else{
 		mes "[Guide Gion]";
 		mes "Looks like you've taken care of the target. Hmm.";
@@ -97,12 +101,25 @@ OnMonster:
 	initnpctimer;
 	end;
 	
+	
 OnTimer60000:
 	stopnpctimer;
 OnInit:
 	setarray .mob_name$[0],"Kagerou's Past","Kagerou's Memory","Kagerou's Mistake","Kagerou's Legacy","Oboro's Past","Oboro's Memory","Oboro's Mistake","Oboro's Legacy","Family's Past","Family's Memory","Family's Mistake","Family's Legacy";
 	setarray .mob_id[0],1049,1113,1002,1007,1010,1031;
 	areamonster "job_ko",100,50,200,100,"Family Secret",1049,1,strnpcinfo(0)+"::OnMonster";	//Family Secret = Picky.
+OnMonster1:
+OnMonster2:
+OnMonster3:
+OnMonster4:
+OnMonster5:
+OnMonster6:
+OnMonster7:
+OnMonster8:
+OnMonster9:
+OnMonster10:
+OnMonster11:
+OnMonster12:
 	for (.i=0; .i< getarraysize(.mob_name$)-1; .i=.i+1){	//0
 		for (.k=0; .k< getarraysize(.mob_id)-1; .k=.k+1){	//0
 			if (mobcount(.mob_id[.k],strnpcinfo(0)+"::OnMonster"+.i) == 5){break;}else{
