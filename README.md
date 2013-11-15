@@ -13,3 +13,7 @@ Battle Test<br>
 Block 38(Test of Survival)<br>
 Check what happens when LP <= 0 is reached<br>
 Blessing Block[Officail Behaviour: Can be blessed again, Our behaviour: cannot be blessed again.]
+
+Official Ones:
+Crafting Tools#ko_01
+Refinement#ko_01

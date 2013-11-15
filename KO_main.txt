@@ -17,7 +17,7 @@
 
 que_ng,28,156,1	script	Start#ko	-1,1,1,{
 OnTouch:
-if ((BaseJob==25) && (BaseLevel >= 99) && (JobLevel >= 70) && (checkquest(5131) == -1)){
+if ((BaseJob==25) && (BaseLevel > 98) && (JobLevel > 69) && (checkquest(5131) == -1)){
 	mes "Secret Passage to ^25C18DNinja Guild^25C18D";
 	mes "You hear familiar voices talking to each other.";
 	next;

@@ -195,7 +195,7 @@ function	script	KO_SR	{	//Kagerou/Oboro Survival-RPS(Win,Lose,Draw,Location,Bloc
 
 
 
-job_ko,57,16,1	script	Sight#ko_00	858,1,1,{
+job_ko,57,16,1	script	Sight#ko_00	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",0);
 
 OnTouch:
@@ -207,33 +207,30 @@ OnTouch:
 		mes "You've returned to the first block. Your LP is recovered.";
 		next;
 	}
-	switch(select("Read the description.:Start the test.")){
-		case 1:
-			mes "The Test of Survival starts from here and you use  100 Life Points (LP) and roll dice to advance forward through the test.";
+	while (select("Read the description.:Start the test.")==1){
+			mes "The Test of Survival starts from here and you use ^FD0260100 Life Points (LP)^000000 and roll dice to advance forward through the test.";
 			next;
 			mes "The whole test starts from block 0 to block 40 and each block you get can either give or take your LP.";
 			next;
-			mes "You need to have some LP till you get to the arrival block at the end to pass the test.";
+			mes "You need to have some ^FD0260LP^000000 till you get to the arrival block at the end to pass the test.";
 			next;
-			mes "But! You still pass the test if your LP becomes 0 when you get to the arrival block.";
+			mes "But! You still pass the test if your ^FD0260LP^000000 becomes 0 when you get to the arrival block.";
 			next;
 			mes "Game instructions end here. Good luck to you.";
 			close;
-
-		case 2:
-			if (checkquest(5140) == -1)setquest 5140;
-			set LPOINTS, 100;
-			set LREADYHR,1;
-			mes "You've gained 100 Life Points (LP).";
-			next;
-			callfunc("KO_SL",0,1);
-			close2;
-			callfunc("KO_SW",@dice+1);
-			end;
 	}
+	if (checkquest(5140) == -1) setquest 5140;
+	set LPOINTS, 100;
+	set LREADYHR,1;
+	mes "You've gained 100 Life Points (LP).";
+	next;
+	callfunc("KO_SL",0,1);
+	close2;
+	callfunc("KO_SW",@dice+1);
+	end;
 }
 
-job_ko,49,16,1	script	Sight#ko_01	858,1,1,{
+job_ko,49,16,1	script	Sight#ko_01	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",1);
 
 OnTouch:
@@ -256,7 +253,7 @@ OnTouch:
 	}
 }
 
-job_ko,41,16,1	script	Sight#ko_02	858,1,1,{
+job_ko,41,16,1	script	Sight#ko_02	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",2);
 
 OnTouch:
@@ -268,7 +265,7 @@ OnTouch:
 	callfunc("KO_SW",1);
 }
 
-job_ko,33,16,1	script	Sight#ko_03	858,1,1,{
+job_ko,33,16,1	script	Sight#ko_03	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",3);
 
 OnTouch:
@@ -285,7 +282,7 @@ OnTouch:
 	}
 }
 
-job_ko,25,16,1	script	Sight#ko_04	858,1,1,{
+job_ko,25,16,1	script	Sight#ko_04	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",4);
 
 OnTouch:
@@ -318,7 +315,7 @@ OnTouch:
 	}
 }
 
-job_ko,17,16,1	script	Sight#ko_05	858,1,1,{
+job_ko,17,16,1	script	Sight#ko_05	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",5);
 
 OnTouch:
@@ -350,7 +347,7 @@ OnTouch:
 	}
 }
 
-job_ko,17,24,1	script	Sight#ko_06	858,1,1,{
+job_ko,17,24,1	script	Sight#ko_06	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",6);
 
 OnTouch:
@@ -372,7 +369,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+7);
 }
 
-job_ko,17,32,1	script	Sight#ko_07	858,1,1,{
+job_ko,17,32,1	script	Sight#ko_07	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",7);
 
 OnTouch:
@@ -384,7 +381,7 @@ OnTouch:
 	callfunc("KO_SW",6);
 }
 
-job_ko,17,40,1	script	Sight#ko_08	858,1,1,{
+job_ko,17,40,1	script	Sight#ko_08	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",8);
 
 OnTouch:
@@ -398,7 +395,7 @@ OnTouch:
 	callfunc("KO_SR",15,0,-1,8,0,0);	
 }
 
-job_ko,17,48,1	script	Sight#ko_09	858,1,1,{
+job_ko,17,48,1	script	Sight#ko_09	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",9);
 
 OnTouch:
@@ -411,7 +408,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+10);
 }
 
-job_ko,17,56,1	script	Sight#ko_10	858,1,1,{
+job_ko,17,56,1	script	Sight#ko_10	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",10);
 
 OnTouch:
@@ -444,7 +441,7 @@ OnTouch:
 	}
 }
 
-job_ko,22,60,1	script	Sight#ko_11	858,1,1,{
+job_ko,22,60,1	script	Sight#ko_11	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",11);
 
 OnTouch:
@@ -456,7 +453,7 @@ close2;
 callfunc("KO_SW",10);
 }
 
-job_ko,30,60,1	script	Sight#ko_12	858,1,1,{
+job_ko,30,60,1	script	Sight#ko_12	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",12);
 
 OnTouch:
@@ -470,7 +467,7 @@ OnTouch:
 	callfunc("KO_SR",20,9,-1,12,0,0);
 }
 
-job_ko,38,60,1	script	Sight#ko_13	858,1,1,{
+job_ko,38,60,1	script	Sight#ko_13	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",13);
 
 OnTouch:
@@ -492,7 +489,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+14);
 }
 
-job_ko,46,60,1	script	Sight#ko_14	858,1,1,{
+job_ko,46,60,1	script	Sight#ko_14	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",14);
 
 OnTouch:
@@ -523,7 +520,7 @@ OnTouch:
 	}
 }
 
-job_ko,54,60,1	script	Sight#ko_15	858,1,1,{
+job_ko,54,60,1	script	Sight#ko_15	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",15);
 
 OnTouch:
@@ -545,7 +542,7 @@ OnTouch:
 	close;
 }
 
-job_ko,62,60,1	script	Sight#ko_16	858,1,1,{
+job_ko,62,60,1	script	Sight#ko_16	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",16);
 
 OnTouch:
@@ -559,7 +556,7 @@ OnTouch:
 	}
 }
 
-job_ko,62,51,1	script	Sight#ko_17	858,1,1,{
+job_ko,62,51,1	script	Sight#ko_17	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",17);
 
 OnTouch:
@@ -571,7 +568,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+18);
 }
 
-job_ko,62,43,1	script	Sight#ko_18	858,1,1,{
+job_ko,62,43,1	script	Sight#ko_18	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",18);
 
 OnTouch:
@@ -584,7 +581,7 @@ OnTouch:
 
 }
 
-job_ko,62,35,1	script	Sight#ko_19	858,1,1,{
+job_ko,62,35,1	script	Sight#ko_19	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",19);
 
 OnTouch:
@@ -596,7 +593,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+20);
 }
 
-job_ko,62,27,1	script	Sight#ko_20	858,1,1,{
+job_ko,62,27,1	script	Sight#ko_20	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",20);
 
 OnTouch:
@@ -618,7 +615,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+21);
 }
 
-job_ko,57,23,1	script	Sight#ko_21	858,1,1,{
+job_ko,57,23,1	script	Sight#ko_21	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",21);
 
 OnTouch:
@@ -630,7 +627,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+22);
 }
 
-job_ko,49,23,1	script	Sight#ko_22	858,1,1,{
+job_ko,49,23,1	script	Sight#ko_22	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",22);
 
 OnTouch:
@@ -665,7 +662,7 @@ OnTouch:
 	}
 }
 
-job_ko,41,23,1	script	Sight#ko_23	858,1,1,{
+job_ko,41,23,1	script	Sight#ko_23	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",23);
 
 OnTouch:
@@ -680,7 +677,7 @@ OnTouch:
 }
 
 
-job_ko,33,23,1	script	Sight#ko_24	858,1,1,{
+job_ko,33,23,1	script	Sight#ko_24	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",24);
 
 OnTouch:
@@ -693,7 +690,7 @@ OnTouch:
 	callfunc("KO_SD",8,-2,8,19,24,2,25,30);
 }
 
-job_ko,25,23,1	script	Sight#ko_25	858,1,1,{
+job_ko,25,23,1	script	Sight#ko_25	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",25);
 
 OnInit:
@@ -735,7 +732,7 @@ OnTouch:
 	}
 }
 
-job_ko,25,32,1	script	Sight#ko_26	858,1,1,{
+job_ko,25,32,1	script	Sight#ko_26	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",26);
 
 OnTouch:
@@ -749,7 +746,7 @@ OnTouch:
 	
 }
 
-job_ko,25,40,1	script	Sight#ko_27	858,1,1,{
+job_ko,25,40,1	script	Sight#ko_27	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",27);
 
 OnTouch:
@@ -771,7 +768,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+28);
 }
 
-job_ko,25,48,1	script	Sight#ko_28	858,1,1,{
+job_ko,25,48,1	script	Sight#ko_28	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",28);
 
 OnTouch:
@@ -805,7 +802,7 @@ OnTouch:
 			callfunc("KO_SW",@dice+29);
 	}
 }
-job_ko,30,52,1	script	Sight#ko_29	858,1,1,{
+job_ko,30,52,1	script	Sight#ko_29	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",29);
 
 OnTouch:
@@ -818,7 +815,7 @@ OnTouch:
 	end;
 }
 
-job_ko,38,52,1	script	Sight#ko_30	858,1,1,{
+job_ko,38,52,1	script	Sight#ko_30	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",30);
 
 OnTouch:
@@ -832,7 +829,7 @@ OnTouch:
 	
 }
 
-job_ko,46,52,1	script	Sight#ko_31	858,1,1,{
+job_ko,46,52,1	script	Sight#ko_31	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",31);
 
 OnTouch:
@@ -866,7 +863,7 @@ OnTouch:
 
 }
 
-job_ko,46,52,1	script	Sight#ko_32	858,1,1,{
+job_ko,46,52,1	script	Sight#ko_32	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",32);
 
 OnTouch:
@@ -877,7 +874,7 @@ OnTouch:
 	callfunc("KO_SR",-2,0,0,32,33,38);
 }
 
-job_ko,54,43,1	script	Sight#ko_33	858,1,1,{
+job_ko,54,43,1	script	Sight#ko_33	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",33);
 
 OnTouch:
@@ -903,7 +900,7 @@ OnTouch:
 	}
 }
 
-job_ko,54,35,1	script	Sight#ko_34	858,1,1,{
+job_ko,54,35,1	script	Sight#ko_34	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",34);
 
 OnTouch:
@@ -925,7 +922,7 @@ OnTouch:
 	callfunc("KO_SW",@dice+35);
 }
 
-job_ko,49,31,1	script	Sight#ko_35	858,1,1,{
+job_ko,49,31,1	script	Sight#ko_35	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",35);
 
 OnTouch:
@@ -938,7 +935,7 @@ OnTouch:
 	end;
 }
 
-job_ko,41,31,1	script	Sight#ko_36	858,1,1,{
+job_ko,41,31,1	script	Sight#ko_36	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",36);
 
 OnTouch:
@@ -966,7 +963,7 @@ OnTouch:
 	}
 }
 
-job_ko,33,31,1	script	Sight#ko_37	858,1,1,{
+job_ko,33,31,1	script	Sight#ko_37	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",37);
 
 OnTouch:
@@ -990,7 +987,7 @@ OnTouch:
 	}
 }
 
-job_ko,33,40,1	script	Sight#ko_38	858,1,1,{
+job_ko,33,40,1	script	Sight#ko_38	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",37);
 
 OnTouch:
@@ -1022,7 +1019,7 @@ OnTouch:
 	}
 }
 
-job_ko,38,44,1	script	Sight#ko_39	858,1,1,{
+job_ko,38,44,1	script	Sight#ko_39	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",39);
 
 OnTouch:
@@ -1044,7 +1041,7 @@ OnTouch:
 	}
 }
 
-job_ko,46,41,1	script	Sight#ko_40	858,1,1,{
+job_ko,46,41,1	script	Sight#ko_40	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",40);
 
 OnTouch:
