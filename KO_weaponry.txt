@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.2
+//= 1.3
 //===== Description: ========================================= 
 //= Test of Weaponary KO
 //===== Additional Comments: ================================= 
@@ -11,6 +11,7 @@
 //= 1.1 Fixed Many Errors.	[Dastgir Pojee]
 //= 1.2 Fixed SpriteID ,(Still 1 needed),
 //=		And Dialogs, Added named item.	[Dastgir Pojee]
+//= 1.3 Most of official part implemented.	[Dastgir Pojee(Special Thanks to Yommy)]
 //============================================================
 job_ko,117,128,0	script	Drawer#ko	CLEAR_NPC,{
 mes "There is some kind of device on the drawer.";
