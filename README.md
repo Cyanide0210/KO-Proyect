@@ -7,11 +7,9 @@ And load the scripts normally.<br>
 == To Test<br>
 Old Man NPC<br>
 
-== Remaining Things<br>
-Battle Test<br>
-Blessing Block[Officail Behaviour: Can be blessed again, Our behaviour: cannot be blessed again.]
-
-Official Ones:
+NPC's Matching Official:
+KO_main
+KO_Battle
 KO_Weaponry
 KO_Knowledge
 KO_Survival

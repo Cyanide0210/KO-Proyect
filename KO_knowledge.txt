@@ -31,7 +31,7 @@ if (BaseJob!=25){
 	if(checkquest(5144)){erasequest 5144;}
 	if(checkquest(5145)){erasequest 5145;}
 	erasequest 5146;
-	mes "[Red Leopard Joe]";
+	mes "[Cougar]";
 	mes "Sorry, Your family is not same as ours, is there something wrong?";
 	close2;
 	warp "amatsu",147,136;
@@ -322,6 +322,7 @@ if (checkquest(5136)==1 && checkquest(5139) == -1){
 	warp "amatsu",147,136;
 	end;
 }
+close;
 
 function	Question	{
 	mes getarg(0);
