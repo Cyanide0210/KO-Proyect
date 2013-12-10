@@ -3,12 +3,13 @@
 //===== By: ================================================== 
 //= Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.2
 //===== Description: ========================================= 
 //= Kagerou/Oboro Job Change NPC
 //===== Additional Comments: ================================= 
 //= 1.0 Extracted from iRO.			[Dastgir Pojee]
 //= 1.1 Matching with official.		[Dastgir Pojee(Special Thanks to Yommy)]
+//= 1.2 Fixed callsub and co-ordinates of monster.	[Dastgir Pojee(Special Thanks to Yommy)]
 //============================================================
 job_ko,148,46,5	script	Guide Gion#ko2	4_M_KAGE_OLD,{
 if (job_kagero==7){
@@ -99,26 +100,14 @@ if (job_kagero==7){
 	next;
 	mes "[Guide Gion]";
 	mes "You only need to look forward and never turn back.";
-	if(checkquest(5131)){erasequest 5131;}
-	if(checkquest(5132)){erasequest 5132;}
-	if(checkquest(5133)){erasequest 5133;}
-	if(checkquest(5134)){erasequest 5134;}
-	if(checkquest(5135)){erasequest 5135;}
-	if(checkquest(5136)){erasequest 5136;}
-	if(checkquest(5137)){erasequest 5137;}
-	if(checkquest(5138)){erasequest 5138;}
-	if(checkquest(5139)){erasequest 5139;}
-	if(checkquest(5140)){erasequest 5140;}
-	if(checkquest(5141)){erasequest 5141;}
-	if(checkquest(5142)){erasequest 5142;}
-	if(checkquest(5143)){erasequest 5143;}
-	if(checkquest(5144)){erasequest 5144;}
-	if(checkquest(5145)){erasequest 5145;}
-	erasequest 5146;
+	for (.i=5131; .i<5147; .i++ ){
+		if (checkquest(.i) != -1){erasequest .i;}
+	}
 	job_kagero = 9;
 	if (KO_OPT==1){getnameditem 13075,strcharinfo(0);}
 	else{getnameditem 13311,strcharinfo(0);}
 	if(Sex){jobchange Job_Kagerou;}else{jobchange Job_Oboro;}
+	resetlvl(1);
 	cmdothernpc "Summon Target#ko","OnCommandEnable";
 	mes "[Guide Gion]";
 	mes "I hope the blessings of Kagerou, dancing sun and Oboro, misty moonlight will be with you on your journey ahead.";
@@ -183,10 +172,10 @@ OnCommandDisable:
 
 job_ko,1,1,4	script	Summon Target#ko	CLEAR_NPC,{
 OnInit:
-	callsub "OnCommandEnable";
+	callsub OnCommandEnable;
 	end;
 OnTimer180000:
-	callsub "OnCommandEnable";
+	callsub OnCommandEnable;
 	end;
 OnCommandEnable:
 	stopnpctimer;
@@ -200,7 +189,7 @@ OnCommandEnable:
 		case 7: set .mob_id,1050; break;
 		default: set .mob_id,1002; break;
 	}
-	areamonster "job_ko",140,50,40,40,"Family Secret",.mob_id,1,"Summon Target#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family Secret",.mob_id,1,"Summon Target#ko::OnMyMobDead";
 	return;
 //------ 
 OnCommandDisable:
@@ -209,41 +198,41 @@ OnCommandDisable:
 //------ 
 OnMyMobDead:
 	if (job_kagero == 7){
-		callsub "OnCommandDisable";
+		callsub OnCommandDisable;
 		job_kagero = 8;
 	}else{
-		callsub "OnCommandEnable";
+		callsub OnCommandEnable;
 	}
 	end;
 }
 
 job_ko,1,2,4	script	Summon Fake#ko	CLEAR_NPC,{
 OnInit:
-	callsub "OnCommandEnable";
+	callsub OnCommandEnable;
 	end;
 	
 OnCommandEnable:
-	areamonster "job_ko",140,50,40,40,"Family's Legacy",1002,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Memory",1002,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Memory",1002,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Memory",1113,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Past",1113,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Past",1113,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Mistake",1010,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Memory",1010,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Memory",1010,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Past",1049,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Mistake",1049,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Mistake",1049,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Family's Memory",1050,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Oboro's Past",1050,5,"Summon Fake#ko::OnMyMobDead";
-	areamonster "job_ko",140,50,40,40,"Kagerou's Past",1050,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Legacy",1002,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Memory",1002,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Memory",1002,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Mistake",1031,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Memory",1113,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Past",1113,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Past",1113,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Legacy",1063,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Mistake",1010,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Memory",1010,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Memory",1010,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Past",1049,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Mistake",1049,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Mistake",1049,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Family's Memory",1050,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Oboro's Past",1050,5,"Summon Fake#ko::OnMyMobDead";
+	areamonster "job_ko",100,10,180,90,"Kagerou's Past",1050,5,"Summon Fake#ko::OnMyMobDead";
 	return;
 OnCommandDisable:
 	killmonster "job_ko","Summon Fake#ko::OnMyMobDead";
@@ -251,8 +240,8 @@ OnCommandDisable:
 
 OnMyMobDead:
 	if (mobcount("job_ko","Summon Fake#ko::OnMyMobDead") < 100){
-		callsub "OnCommandDisable";
-		callsub "OnCommandEnable";
+		callsub OnCommandDisable;
+		callsub OnCommandEnable;
 		warp "job_ko",16,113;
 	}
 	end;

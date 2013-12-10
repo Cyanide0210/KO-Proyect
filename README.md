@@ -4,12 +4,4 @@ KO-Project<br>
 Add the contents of quest_db.txt to your db/quest_db.txt<br>
 And load the scripts normally.<br>
 
-== To Test<br>
-Old Man NPC<br>
-
-NPC's Matching Official:
-KO_main
-KO_Battle
-KO_Weaponry
-KO_Knowledge
-KO_Survival
+All the NPC's are upto the official one. Please kindly report bugs/errors to http://hercules.ws/board/topic/1134-kagerou-oboro-job-change-questiro-based/

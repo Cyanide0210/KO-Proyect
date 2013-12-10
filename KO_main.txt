@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.4
+//= 1.5
 //===== Description: ========================================= 
 //= Kagerou/Oboro Job Change NPC
 //===== Additional Comments: ================================= 
@@ -14,11 +14,12 @@
 //=     Battle Tests,Added Many Dialogs and fixed
 //=		to official behaviour, Added Cutins.	  [Dastgir Pojee]
 //= 1.4 Official Behaviour Added.				  [Dastgir Pojee(Special Thanks to Yommy)]
+//= 1.5 Fixed some conditions and color codes.	[Dastgir Pojee]
 //============================================================
 
 que_ng,28,156,1	script	Start#ko	HIDDEN_WARP_NPC,1,1,{
 OnTouch:
-if ((BaseJob==25) && (BaseLevel > 98) && (JobLevel > 69) && (checkquest(5131) == -1)){
+if (BaseJob==Job_Ninja && BaseLevel > 98 && JobLevel > 69 && job_kagero==0){
 	mes "Secret Passage to ^25C18DNinja Guild^25C18D";
 	mes "You hear familiar voices talking to each other.";
 	next;
@@ -54,23 +55,10 @@ if ((BaseJob==25) && (BaseLevel > 98) && (JobLevel > 69) && (checkquest(5131) ==
 	job_kagero = 1;
 	KO_QD = 0;
 	close;
-}else{
-	if(checkquest(5131)){erasequest 5131;}
-	if(checkquest(5132)){erasequest 5132;}
-	if(checkquest(5133)){erasequest 5133;}
-	if(checkquest(5134)){erasequest 5134;}
-	if(checkquest(5135)){erasequest 5135;}
-	if(checkquest(5136)){erasequest 5136;}
-	if(checkquest(5137)){erasequest 5137;}
-	if(checkquest(5138)){erasequest 5138;}
-	if(checkquest(5139)){erasequest 5139;}
-	if(checkquest(5140)){erasequest 5140;}
-	if(checkquest(5141)){erasequest 5141;}
-	if(checkquest(5142)){erasequest 5142;}
-	if(checkquest(5143)){erasequest 5143;}
-	if(checkquest(5144)){erasequest 5144;}
-	if(checkquest(5145)){erasequest 5145;}
-	erasequest 5146;
+}else if (BaseJob!=Job_Ninja){
+	for (.i=5131; .i<5147; .i++ ){
+		if (checkquest(.i) != -1){erasequest .i;}
+	}
 	job_kagero = 0;
 	warp "amatsu",147,136;
 	end;
@@ -99,8 +87,8 @@ if (Class == Job_Kagerou || Class == Job_Oboro){
 	close2;
 	warp "job_ko",26,111;
 	end;
-}else if (job_kagero > 1 && Class == Job_Ninja){
-	mes "Entrance to the ^25C18DNinja Guild^25C18D hideout.";
+}else if (job_kagero > 0 && BaseJob == Job_Ninja){
+	mes "Entrance to the ^25C18DNinja Guild^000000 hideout.";
 	next;
 	if(select("Enter.:Do not enter.") == 1){
 		close2;
@@ -116,26 +104,13 @@ if (Class == Job_Kagerou || Class == Job_Oboro){
 
 job_ko,25,115,4	script	Old Man#ko	4_M_KAGE_OLD,{
 function KO_IB; function KO_QS;
-if (Class != Job_Ninja || Class != Job_Oboro || Class != Job_Kagerou){
-	if(checkquest(5131)){erasequest 5131;}
-	if(checkquest(5132)){erasequest 5132;}
-	if(checkquest(5133)){erasequest 5133;}
-	if(checkquest(5134)){erasequest 5134;}
-	if(checkquest(5135)){erasequest 5135;}
-	if(checkquest(5136)){erasequest 5136;}
-	if(checkquest(5137)){erasequest 5137;}
-	if(checkquest(5138)){erasequest 5138;}
-	if(checkquest(5139)){erasequest 5139;}
-	if(checkquest(5140)){erasequest 5140;}
-	if(checkquest(5141)){erasequest 5141;}
-	if(checkquest(5142)){erasequest 5142;}
-	if(checkquest(5143)){erasequest 5143;}
-	if(checkquest(5144)){erasequest 5144;}
-	if(checkquest(5145)){erasequest 5145;}
-	erasequest 5146;
+if (BaseJob != Job_Ninja && job_kagero>0){
+	for (.i=5131; .i<5147; .i++ ){
+		if (checkquest(.i) != -1){erasequest .i;}
+	}
 	job_kagero = 0;
 	mes "[Cougar]";
-	mes "You are not in famliy of ninja.";
+	mes "You are not in Family of Ninja.";
 	close2;
 	warp "amatsu",147,136;
 	end;
@@ -156,6 +131,8 @@ if (job_kagero==1){
 			mes "[Old Man]";
 			mes "At last, a customer! Hmm... and a live one, too!";
 			select("Excuse me... where am I?");
+			next;
+			mes "[Old Man]";
 			mes "^1A95E6He keeps talking and doesn't stop to answer your question.^1A95E6";
 			next;
 			mes "[Old Man]";
@@ -286,7 +263,7 @@ if (job_kagero==1){
 			mes "Sorry I am not a teacher. But!";
 			next;
 			mes "[Guide Gion]";
-			mes "I can help you on the path you've chosen, the ^33CC71"+((Sex)?"Kagerou":"Oboro")+"^33CC71 path.";
+			mes "I can help you on the path you've chosen, the ^33CC71"+((Sex)?"Kagerou":"Oboro")+"^000000 path.";
 			next;
 			mes "^1A95E6You hear Guide Gion's voice faintly as you slip away.^1A95E6";
 			next;
@@ -317,7 +294,7 @@ if (job_kagero==1){
 	cutin "job_ko01",2;
 	mes "[Guide Gion]";
 	mes "Yes, there are 4 tests.";
-	mes "My ancestors trained my people with 4 tests that involve ^087FF8knowledge^087FF8, ^087FF8survival^087FF8, ^087FF8weapons^087FF8, and ^087FF8battle^087FF8.";
+	mes "My ancestors trained my people with 4 tests that involve ^087FF8knowledge^000000, ^087FF8survival^000000, ^087FF8weapons^000000, and ^087FF8battle^000000.";
 	next;
 	mes "[Guide Gion]";
 	mes "I know you are curious what these tests are. Let me explain one by one.";
@@ -512,6 +489,7 @@ if (job_kagero==1){
 			next;
 			mes "[Guide Gion]";
 			mes "Your third test is the Test of "+.KO_RE$+".";
+			next;
 			if (KO_QD&1 && KO_QD&2){KO_QS(3,3);}else if(KO_QD&1 && KO_QD&4){KO_QS(2,3);}else{KO_QS(1,3);}
 			close;
 		} else if (KO_QD&1 || KO_QD&2 || KO_QD&4) {	//Only 1 Test Completed.
@@ -637,7 +615,7 @@ if (job_kagero==1){
 	mes "Now! No more small talk. I'll let you know what the target is for the Test of Battle.";
 	next;
 	mes "[Guide Gion]";
-	mes "The target is a monster called the ^FF000Family Secret^000000.";
+	mes "The target is a monster called the ^FF0000Family Secret^000000.";
 	next;
 	mes "[Guide Gion]";
 	mes "You will have to be careful because there are many similiar shaped and named monsters in test site.";
@@ -667,7 +645,7 @@ function	KO_IB	{	//Kagerou/Oboro In-Between
 	//0=Test of Knowledge:1=Test of Survival:2=Test of Weaponry:3=Test of Battle
 	cutin "job_ko04",2;
 	mes "[Guide Gion]";
-	mes "I see you are in the middle of the ^339CCCTest of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+"^339CCC. Will you go back to the test site?";
+	mes "I see you are in the middle of the ^339CCCTest of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+"^000000. Will you go back to the test site?";
 	switch(select("Go back to the test site.:Visit the village.")){
 		case 1:
 		mes "Test of "+((getarg(0)==0)?"Knowledge":((getarg(0)==1)?"Survival":((getarg(0)==2)?"Weaponry":"Battle")))+" The test site is over here.";
@@ -692,23 +670,22 @@ function	KO_QS	{	//Kagerou/Oboro QuestSelect.
 	//1=Test of Knowledge:2=Test of Survival:3=Test of Weaponry:4=Test of Battle
 	if (getarg(1)<=2){
 		mes "[Guide Gion]";
-		mes "You are starting with the ^339CCCTest of "+((getarg(0)==1)?"Knowledge":((getarg(0)==2)?"Survival":"Weaponry"))+"^339CCC"+((getarg(1)==2)?" as Second test.":((getarg(1)==3)?" as Third test.":"."));
+		mes "You are starting with the ^339CCCTest of "+((getarg(0)==1)?"Knowledge":((getarg(0)==2)?"Survival":"Weaponry"))+"^000000"+((getarg(1)==2)?" as Second test.":((getarg(1)==3)?" as Third test.":"."));
 		next;
 	}
 	switch(getarg(0)){
 		case 1:
-			if(select("Familiar face?")==1){
-				mes "[Guide Gion]";
-				mes "Then I will get to see a familiar face after so long";
-				next;
-				setquest 5136;	//Knowledge Test
-				mes "[Guide Gion]";
-				mes "Ha ha ha. You'll know when we get there. The Test of Knowledge is taken over here.";
-				close2;
-				cutin "",255;
-				warp "job_ko",72,128;
-				end;
-			}
+			mes "[Guide Gion]";
+			mes "Then I will get to see a familiar face after so long";
+			select("Familiar face?");
+			next;
+			setquest 5136;	//Knowledge Test
+			mes "[Guide Gion]";
+			mes "Ha ha ha. You'll know when we get there. The Test of Knowledge is taken over here.";
+			close2;
+			cutin "",255;
+			warp "job_ko",72,128;
+			end;
 		case 2:
 			mes "[Guide Gion]";
 			mes "It's a lonesome test that you have to face alone.";

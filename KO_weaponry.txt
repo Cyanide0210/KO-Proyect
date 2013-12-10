@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.3
+//= 1.4
 //===== Description: ========================================= 
 //= Test of Weaponary KO
 //===== Additional Comments: ================================= 
@@ -12,6 +12,7 @@
 //= 1.2 Fixed SpriteID ,(Still 1 needed),
 //=		And Dialogs, Added named item.	[Dastgir Pojee]
 //= 1.3 Most of official part implemented.	[Dastgir Pojee(Special Thanks to Yommy)]
+//= 1.4 Fixed effects and conditions.	[Dastgir Pojee]
 //============================================================
 job_ko,117,128,0	script	Drawer#ko	CLEAR_NPC,{
 mes "There is some kind of device on the drawer.";
@@ -31,23 +32,10 @@ end;
 }
 
 job_ko,127,125,1	script	Red Leopard Joe#ko	4_M_JOB_ASSASSIN,{
-if (BaseJob!=25){
-	if(checkquest(5131)){erasequest 5131;}
-	if(checkquest(5132)){erasequest 5132;}
-	if(checkquest(5133)){erasequest 5133;}
-	if(checkquest(5134)){erasequest 5134;}
-	if(checkquest(5135)){erasequest 5135;}
-	if(checkquest(5136)){erasequest 5136;}
-	if(checkquest(5137)){erasequest 5137;}
-	if(checkquest(5138)){erasequest 5138;}
-	if(checkquest(5139)){erasequest 5139;}
-	if(checkquest(5140)){erasequest 5140;}
-	if(checkquest(5141)){erasequest 5141;}
-	if(checkquest(5142)){erasequest 5142;}
-	if(checkquest(5143)){erasequest 5143;}
-	if(checkquest(5144)){erasequest 5144;}
-	if(checkquest(5145)){erasequest 5145;}
-	erasequest 5146;
+if (BaseJob!=Job_Ninja){
+	for (.i=5131; .i<5147; .i++ ){
+		if (checkquest(.i) != -1){erasequest .i;}
+	}
 	mes "[Red Leopard Joe]";
 	mes "Sorry, Your family is not same as ours, is there something wrong?";
 	close2;
@@ -61,7 +49,7 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 	next;
 	select("Long time indeed,Joe.");
 	mes "[Red Leopard Joe]";
-	mes "You aren't surprised I'm here. Did you meet ^0237FDCougar^0237FD before coming here?";
+	mes "You aren't surprised I'm here. Did you meet ^0237FDCougar^000000 before coming here?";
 	next;
 	mes "[Red Leopard Joe]";
 	mes "Don't like it that I'm not the first one you visited but that is not important.";
@@ -91,49 +79,52 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 	next;
 	mes "Let's now create a new prototype weapon.";
 	next;
-	donpcevent "Crafting Tools#ko_01:OnEffect";
+	donpcevent "Crafting Tools#ko_01::OnEffect";
 	mes "[Red Leopard Joe]";
 	mes "Feel free to use tools from here,";
 	next;
-	donpcevent "Crafting Tools#ko_02:OnEffect";
+	donpcevent "Crafting Tools#ko_02::OnEffect";
 	mes "[Red Leopard Joe]";
 	mes "there";
 	next;
-	donpcevent "Crafting Tools#ko_03:OnEffect";
+	donpcevent "Crafting Tools#ko_03::OnEffect";
 	setquest 5142;	//Prototype-(1)
 	mes "[Red Leopard Joe]";
 	mes "and everywhere else. Now let's begin!!";
 	close;
 }else if (checkquest(5138)==1 && checkquest(5142)==1 && checkquest(5143)==-1 && checkquest(5144)==-1 && checkquest(5145)==-1){
 	mes "Are you done making the prototype of the new weapons?";
-	switch(select("Crafting tools?:I don't have enough meterials.:How do you expect me to make a weapon?")){
+	switch(select("Crafting tools?:I don't have enough materials.:How do you expect me to make a weapon?")){
 		case 1:
-			donpcevent "Crafting Tools#ko_01:OnEffect";
+			next;
+			donpcevent "Crafting Tools#ko_01::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Feel free to use tools from there and";
 			next;
-			donpcevent "Crafting Tools#ko_02:OnEffect";
+			donpcevent "Crafting Tools#ko_02::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "there";
 			next;
-			donpcevent "Crafting Tools#ko_03:OnEffect";
+			donpcevent "Crafting Tools#ko_03::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "and anything else you can use";
 			close;
 
 		case 2:
+			next;
 			mes "[Red Leopard Joe]";
 			mes "Are you done making the prototype of the new weapons?";
 			next;
 			mes "[Red Leopard Joe]";
 			mes "You haven't brought enough materials?";
 			next;
-			donpcevent "Drawer#ko::OnEffect";
+			donpcevent "Drawer#ko:::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Then we'll have to pay a visit to the village. Try the drawer over there. It'll take you to the village.";
 			close;
 			
 		case 3:
+			next;
 			mes "[Red Leopard Joe]";
 			mes "Hmm... Guess I expected too much? Let me explain.";
 			next;
@@ -158,15 +149,15 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 	switch(select("Crafting Tools?:I don't have enough materials:How do you expect me to make a weapon?:Yes, I'm done.")){
 		case 1:
 			next;
-			donpcevent "Crafting Tools#ko_01:OnEffect";
+			donpcevent "Crafting Tools#ko_01::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Feel free to use tools from there and";
 			next;
-			donpcevent "Crafting Tools#ko_02:OnEffect";
+			donpcevent "Crafting Tools#ko_02::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "there";
 			next;
-			donpcevent "Crafting Tools#ko_03:OnEffect";
+			donpcevent "Crafting Tools#ko_03::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "and anything else you can use";
 			close;
@@ -179,7 +170,7 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 			mes "[Red Leopard Joe]";
 			mes "You haven't brought enough materials?";
 			next;
-			donpcevent "Drawer#ko::OnEffect";
+			donpcevent "Drawer#ko:::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Then we'll have to pay a visit to the village. Try the drawer over there. It'll take you to the village.";
 			close;
@@ -364,7 +355,6 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 	mes "[Red Leopard Joe]";
 	mes "Oh, I almost forgot";
 	mes "Go report the test results to Gion";
-	KO_QD = KO_QD+1;
 	close2;
 	warp "job_ko",26,104;
 	end;
@@ -379,7 +369,7 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 }
 
 job_ko,131,124,1	script	Crafting Tools#ko_01	CLEAR_NPC,{
-if (checkquest(5138)==1 && checkquest(5142)==1 && checkquest(5143)==0 && checkquest(5144)==0 && checkquest(5145)==0 ){
+if (checkquest(5138)==1 && checkquest(5142)==1 && checkquest(5143)==-1 && checkquest(5144)==-1 && checkquest(5145)==-1 ){
 	function KO_WR; function KO_WC; function KO_PF;
 	@percent = 0; KO_OPT = 0; @wtype = 0; @temp = 0; @grind = 0;
 	mes "Tool to create weapons.";
@@ -463,6 +453,7 @@ function	KO_WR	{	//Kagerou/Oboro	Weapon-Refining
 			if(@temp==1){@refine = @refine+1;}
 			else{@refine = @refine+2;}
 		}
+		next;
 		@temp = getarg(0)+1;
 		mes ((getarg(0)==0)?"Ground":"Tempered")+" the weapon";
 		next;
@@ -490,6 +481,7 @@ function	KO_PF	{	//Kagerou/Oboro	PASS-FAIL
 		if(KO_OPT==1){changequest 5142,5143; getitem 13074,1;}	//Ninja Cutter
 		else if (KO_OPT==2){changequest 5142,5144; getitem 13312,1;}	//Huuma Ninja Job
 		mes "The weapon was created successfully.";
+		next;
 		mes "Let's take it to Red Leopard Joe.";
 		close;
 	}else{
@@ -524,22 +516,21 @@ job_ko,121,121,1	script	Refinement Tools#ko_01	CLEAR_NPC,{
 		mes "You turned off the tool.";
 		close;
 	}
-	if (!getequipisenableref(4) || !getequipisidentify(4)){
-		next;
+	next;
+	if (getequipisenableref(4)==0 || getequipisidentify(4)==0){
 		mes "Bzzzt";
 		mes "A warning beep comes from the tool.";
 		next;
 		mes "[Red Leopard Joe]";
 		mes "This equipment does not work without an equipped item to refine.";
 		close;
-	} else if (!isequipped(13074) || !isequipped(13312)){
-		next;
+	} else if ((KO_OPT==1 && isequipped(13074)==0) || (KO_OPT==2 && isequipped(13312)==0)){
 		mes "Wait... this weapon is not a customized one.";
 		next;
+		mes "[Red Leopard Joe]";
 		mes "Why don't you refine this with those hot-headed blacksmiths out there?";
 		close;
 	} else if (getequiprefinerycnt(4)>=20){
-		next;
 		mes "Bzzzt";
 		mes "A warning beep comes from the tool.";
 		next;
@@ -547,7 +538,6 @@ job_ko,121,121,1	script	Refinement Tools#ko_01	CLEAR_NPC,{
 		mes "This equipment is quite perfectly refined,Keep it for yourself..";
 		close;
 	}else if (getequippercentrefinery(4)<100){
-		next;
 		mes "Analyzing the weapon.";
 		next;
 		mes "This is very well refined equipment. Do you want to continue? Refine skill decreases by 1 if refinement fails.";

@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= M45T3R, Dastgir Pojee
 //===== Current Version: ===================================== 
-//= 1.3
+//= 1.4
 //===== Description: ========================================= 
 //= Test of Knowledge KO
 //===== Additional Comments: ================================= 
@@ -11,26 +11,14 @@
 //= 1.1 Fixed Many Errors.	[Dastgir Pojee]
 //= 1.2 Added a missing next.	[Dastgir Pojee]
 //= 1.3 Most of official part implemented.	[Dastgir Pojee(Special Thanks to Yommy)]
+//= 1.4 Fixed Question loop.	[Dastgir Pojee]
 //============================================================
 
 job_ko,81,124,1	script	Cougar#ko	4_M_JOB_ASSASSIN,{
-if (BaseJob!=25){
-	if(checkquest(5131)){erasequest 5131;}
-	if(checkquest(5132)){erasequest 5132;}
-	if(checkquest(5133)){erasequest 5133;}
-	if(checkquest(5134)){erasequest 5134;}
-	if(checkquest(5135)){erasequest 5135;}
-	if(checkquest(5136)){erasequest 5136;}
-	if(checkquest(5137)){erasequest 5137;}
-	if(checkquest(5138)){erasequest 5138;}
-	if(checkquest(5139)){erasequest 5139;}
-	if(checkquest(5140)){erasequest 5140;}
-	if(checkquest(5141)){erasequest 5141;}
-	if(checkquest(5142)){erasequest 5142;}
-	if(checkquest(5143)){erasequest 5143;}
-	if(checkquest(5144)){erasequest 5144;}
-	if(checkquest(5145)){erasequest 5145;}
-	erasequest 5146;
+if (BaseJob!=Job_Ninja){
+	for (.i=5131; .i<5147; .i++ ){
+		if (checkquest(.i) != -1){erasequest .i;}
+	}
 	mes "[Cougar]";
 	mes "Sorry, Your family is not same as ours, is there something wrong?";
 	close2;
@@ -86,6 +74,7 @@ if (checkquest(5136)==1 && checkquest(5139) == -1){
 	next;
 	mes "[Cougar]";
 	mes "Let's start.";
+	next;
 	function Question;
 	set @cougar_correct,0;
 	.@k$ = "";
@@ -245,7 +234,7 @@ if (checkquest(5136)==1 && checkquest(5139) == -1){
 				Question("You need to equip a card to your shoes to enhance Killing Strike attack. Which of the following is the appropriate card to equip?",2,"Gold Acidus Card:Matyr Card:Odium of Thantos Card:Eddga Card");
 				break;
 			case 49:
-				Question("What wasnext to me when you first met me?",2,"A cushion:A folding screen:A flowerpot:A brazier");
+				Question("What was next to me when you first met me?",2,"A cushion:A folding screen:A flowerpot:A brazier");
 				break;
 			case 50:
 				Question("What is the DEX + LUK total for a Job Master?",2,"8:10:12:14");
@@ -256,53 +245,53 @@ if (checkquest(5136)==1 && checkquest(5139) == -1){
 				mes "Please contact customer service.";
 				close;
 		}
-		mes "You're through all 10 questions. Wasn't so bad! The important part starts now.";
+	}
+	mes "You're through all 10 questions. Wasn't so bad! The important part starts now.";
+	next;
+	mes "[Cougar]";
+	mes "... ... ...";
+	next;
+	if (@cougar_correct < 9){
+		mes "[Cougar]";
+		mes "You fool!!";
+		mes "You couldn't even solve these?";
 		next;
 		mes "[Cougar]";
-		mes "... ... ...";
+		mes "Can't believe someone who is taking a new path can be so pathetic.";
 		next;
-		if (@cougar_correct < 9){
-			mes "[Cougar]";
-			mes "You fool!!";
-			mes "You couldn't even solve these?";
-			next;
-			mes "[Cougar]";
-			mes "Can't believe someone who is taking a new path can be so pathetic.";
-			next;
-			mes "[Cougar]";
-			mes "I'll give you another chance.";
-			mes "You will take the test again with new questions. Better pass it this time.";
-		} else {
-			next;
-			mes "[Cougar]";
-			mes "You passed!";
-			next;
-			mes "[Cougar]";
-			mes "Hmm. "+(@cougar_correct*10)+"?";
-			next;
-			mes "[Cougar]";
-			mes "Well, looks like you weren't lazy with your studies.";
-			next;
-			mes "[Cougar]";
-			mes "What? Proud of yourself for solving these questions?";
-			next;
-			mes "[Cougar]";
-			mes "You still have a long way to go and this is only a small fraction of it.";
-			next;
-			mes "[Cougar]";
-			mes "Well... I'm curious how far your strong will can take you through other tests.";
-			next;
-			completequest 5136;
-			erasequest 5139;
-			set KO_QD,KO_QD+1;
-			mes "[Cougar]";
-			mes "I'll let you go now so go report back to Guide Gion with your results.";
-			warp "job_ko",16,113;
-			end;
-		}
-		set @cougar_correct,0;
-		close;
+		mes "[Cougar]";
+		mes "I'll give you another chance.";
+		mes "You will take the test again with new questions. Better pass it this time.";
+	} else {
+		next;
+		mes "[Cougar]";
+		mes "You passed!";
+		next;
+		mes "[Cougar]";
+		mes "Hmm. "+(@cougar_correct*10)+"?";
+		next;
+		mes "[Cougar]";
+		mes "Well, looks like you weren't lazy with your studies.";
+		next;
+		mes "[Cougar]";
+		mes "What? Proud of yourself for solving these questions?";
+		next;
+		mes "[Cougar]";
+		mes "You still have a long way to go and this is only a small fraction of it.";
+		next;
+		mes "[Cougar]";
+		mes "Well... I'm curious how far your strong will can take you through other tests.";
+		next;
+		completequest 5136;
+		erasequest 5139;
+		set KO_QD,KO_QD+1;
+		mes "[Cougar]";
+		mes "I'll let you go now so go report back to Guide Gion with your results.";
+		warp "job_ko",16,113;
+		end;
 	}
+	set @cougar_correct,0;
+	close;
 
 } else if (checkquest(5136)==2 && checkquest(5139) == -1){
 	mes "[Cougar]";
