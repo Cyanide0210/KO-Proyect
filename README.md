@@ -4,12 +4,4 @@ KO-Project<br>
 Add the contents of quest_db.txt to your db/quest_db.txt<br>
 And load the scripts normally.<br>
 
-== To Test<br>
-Old Man NPC<br>
-
-== Remaining Things<br>
-Dialog when (3rd Test Completed)<br>
-Battle Test<br>
-Block 38(Test of Survival)<br>
-Check what happens when LP <= 0 is reached<br>
-Blessing Block[Officail Behaviour: Can be blessed again, Our behaviour: cannot be blessed again.]
+All the NPC's are upto the official one. Please kindly report bugs/errors to http://hercules.ws/board/topic/1134-kagerou-oboro-job-change-questiro-based/
