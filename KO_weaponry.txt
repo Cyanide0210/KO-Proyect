@@ -119,7 +119,7 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 			mes "[Red Leopard Joe]";
 			mes "You haven't brought enough materials?";
 			next;
-			donpcevent "Drawer#ko:::OnEffect";
+			donpcevent "Drawer#ko::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Then we'll have to pay a visit to the village. Try the drawer over there. It'll take you to the village.";
 			close;
@@ -171,7 +171,7 @@ if (checkquest(5138)==1 && checkquest(5142)==-1 && checkquest(5143)==-1 && check
 			mes "[Red Leopard Joe]";
 			mes "You haven't brought enough materials?";
 			next;
-			donpcevent "Drawer#ko:::OnEffect";
+			donpcevent "Drawer#ko::OnEffect";
 			mes "[Red Leopard Joe]";
 			mes "Then we'll have to pay a visit to the village. Try the drawer over there. It'll take you to the village.";
 			close;
