@@ -244,6 +244,11 @@ OnTouch:
 			mes "Game instructions end here. Good luck to you.";
 			next;
 		}
+		if(checkquest(5140)==-1) setquest 5140;
+	} else{
+		mes "An Unknown Error Occured";
+		mes "Please contact customer service.";
+		close;
 	}
 	callfunc("KO_SL",0,1);
 	close2;
@@ -1042,7 +1047,7 @@ job_ko,46,41,1	script	Sight#ko_40	4_BULLETIN_BOARD2,1,1,{
 callfunc("KO_DL",40);
 
 OnTouch:
-	if (checkquest(5137)!=1 || checkquest(5140) != 1){
+	if ((job_kagero!=5) || ( checkquest(5137)!=1 && checkquest(5140)!=1 ) ){
 		mes "You should not be here";
 		close2;
 		warp "amatsu",147,136;
@@ -1059,9 +1064,9 @@ OnTouch:
 	completequest 5137;
 	erasequest 5140;
 	erasequest 5141;
-	set LPOINTS,0;
-	set KO_Q, 1;
-	set KO_QD,KO_QD+2;
+	LPOINTS = 0;
+	KO_Q = 1;
+	KO_QD = KO_QD+2;
 	warp "job_ko",35,113;
 	end;
 
